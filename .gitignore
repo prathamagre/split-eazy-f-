@@ -27,7 +27,6 @@ yarn-error.log*
 # backend related ignores
 
 # testing
-testing/
 
 # data 
 data/
