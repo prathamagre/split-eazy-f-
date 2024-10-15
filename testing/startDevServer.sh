@@ -1,1 +1,0 @@
-mypython3 -m flask --app sebackend run --debug

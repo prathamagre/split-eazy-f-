@@ -7,10 +7,7 @@
 
 # testing
 /coverage
-<<<<<<< HEAD
-=======
 testing/
->>>>>>> 44401ad97fcdb491db743504aca4c0d3d65f855f
 
 # production
 /build
