@@ -248,11 +248,6 @@ def settlement():
             for j in range(k+1,i+1):
                 toPayMatrix[j-1][j] += toPayMatrix[k][i]
                 toPayMatrix[j][j-1] += toPayMatrix[i][k]
-                
-            #toPayMatrix[k][i] = 0   # mathematically correct but not required in further calculations
-            #toPayMatrix[i][k] = 0   # mathematically correct but not required in further calculations
-
-    #for i in range(noOfParticipants): toPayMatrix[i][i]=0  # mathematically correct but not required in further calculations
 
     # translating the processed toPayMatrix to settlement
     settlement = []
@@ -264,8 +259,6 @@ def settlement():
             else:
                 settlement.append([participantsList[i], participantsList[i-1],-amount])
 
-    #print('settlement before optimization - ', settlement) #DEBUG
-
     # further reducing no. of transactions by unifying transactions where possible
     i = 0
     while(i<len(settlement)-1 and i+1 < len(settlement)):
@@ -275,6 +268,9 @@ def settlement():
         else:
             i+= 1
 
+    # creating an order in which smaller payments are completed first
+    settlement.sort(key=lambda x:x[2])
+    
     #print('settlement after optimization - ', settlement) #DEBUG
 
     # !! There can be further optimization of settlement by making transactinon amounts shorter. For example, if A -> B is 500 and
