@@ -1,0 +1,1 @@
+mypython3 -m flask --app "sebackend:create_app()" run --debug
