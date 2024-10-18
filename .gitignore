@@ -1,5 +1,7 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
+# frontend related ignores
+
 # dependencies
 /node_modules
 /.pnp
@@ -7,8 +9,6 @@
 
 # testing
 /coverage
-testing/
-startDevServer.bat
 
 # production
 /build
@@ -24,5 +24,12 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-sebackend/__pycache__
+# backend related ignores
 
+# testing
+
+# data 
+data/
+
+# python bytecode
+sebackend/__pycache__/
