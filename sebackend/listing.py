@@ -75,7 +75,10 @@ def getAllListings():
     with open('./data/listOfListings.json', 'r') as f:
         listOfListingContent = json.loads(f.read())
 
-    return jsonify({'listings':listOfListingContent['listings']})
+    l = listOfListingContent['listings']
+    # sorting in descending order, so latest entry appears on top
+    l.sort(key=lambda x: x["listingID"], reverse=True)
+    return jsonify({'listings':l})
 
 @bp.route('/editListing', methods = ['POST'])
 def editListing():
