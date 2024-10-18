@@ -6,6 +6,7 @@ import ListPage from './views/ListPage/ListPage';
 import PaymentsPage from './views/PaymentsPage/PaymentsPage';
 import Home from './views/Home/Home';
 import AddList from './views/AddList/AddList';
+import AddPayment from './views/AddPayment/AddPayment';
 
 const router = createBrowserRouter([
     {
@@ -23,6 +24,10 @@ const router = createBrowserRouter([
     {
         path: "/add-list",
         element: <AddList/>
+    },
+    {
+        path: "/add-payment",
+        element: <AddPayment/>
     },
     {
         path: "*",

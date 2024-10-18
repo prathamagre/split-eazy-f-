@@ -1,52 +1,11 @@
 {
   "1": {
     "lastPaymentID": 2,
-    "payments": [
-      {
-        "amount": 100,
-        "paidFor": [
-          "A",
-          "B",
-          "C",
-          "D"
-        ],
-        "description": "Test Record",
-        "paidBy": "A",
-        "dateOfPayment": "15-Oct-2024",
-        "paymentID": 1
-      },
-      {
-        "amount": 1000,
-        "paidFor": [
-          "A",
-          "B",
-          "C",
-          "D"
-        ],
-        "description": "Test Record",
-        "paidBy": "A",
-        "dateOfPayment": "18-Oct-2024",
-        "paymentID": 2
-      }
-    ]
+    "payments": []
   },
   "2": {
     "lastPaymentID": 1,
-    "payments": [
-      {
-        "amount": 100,
-        "paidFor": [
-          "A",
-          "B",
-          "C",
-          "D"
-        ],
-        "description": "Test Record",
-        "paidBy": "A",
-        "dateOfPayment": "15-Oct-2024",
-        "paymentID": 1
-      }
-    ]
+    "payments": []
   },
   "3": {
     "lastPaymentID": 0,
@@ -61,6 +20,14 @@
     "payments": []
   },
   "6": {
+    "lastPaymentID": 0,
+    "payments": []
+  },
+  "7": {
+    "lastPaymentID": 0,
+    "payments": []
+  },
+  "8": {
     "lastPaymentID": 0,
     "payments": []
   }
