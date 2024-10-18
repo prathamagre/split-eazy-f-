@@ -1,9 +1,85 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 
-function PaymentsPage() {
-  return (
-    <div>PaymentsPage</div>
-  )
+const App = () => {
+    const [data, setData] = useState(null); // Store JSON data
+    const [loading, setLoading] = useState(true); // Track loading state
+    const [error, setError] = useState(null); // Track errors
+
+    useEffect(() => {
+
+        const listDetails = JSON.parse(localStorage.getItem("paymentPageData"));
+
+        const fetchData = async () => {
+            try {
+                const response = await fetch("http://127.0.0.1:5000/payment/getAllRecords", {
+                    method: "POST", // POST request to send data
+                    headers: {
+                        "Content-Type": "application/json", // Indicate that the request body is JSON
+                    },
+                    body: JSON.stringify({"listingID":listDetails.listingID}), // Convert the JavaScript object/array to JSON string
+                });
+
+                if (!response.ok) {
+                    throw new Error('Failed to fetch data');
+                }
+
+                const jsonData = await response.json();
+                setData(jsonData); // Set the fetched data
+                setLoading(false); // Stop the loading state
+
+            } catch (error) {
+                setError(error.message); // Handle errors and set error state
+                setLoading(false); // Stop loading even if there is an error
+            }
+        };
+
+        fetchData();
+    }, []); // Runs only on mount
+
+    // Conditional Rendering
+    if (loading) return <h2>Loading...</h2>;
+    if (error) return <h2>Error: {error}</h2>;
+    if (!data || !data.payments || data.payments.length === 0) return <h2>No Data Found</h2>;
+
+    return <ListPage data={data} />;
 }
 
-export default PaymentsPage
+const NavigatePayment = (listingID, description, category, participants, navigate) => {
+    localStorage.setItem("paymentPageData",
+        JSON.stringify({
+            "listingID": listingID,
+            "description": description,
+            "name": category,
+            "participants": participants,
+        })
+    );
+    
+    navigate("/payments-page"); // Trigger navigation after storing the data
+}
+
+const ListPage = ({ data }) => {
+    const navigate = useNavigate(); // Declare useNavigate in this component
+
+    return (
+        <div>
+            <h1>Payments for ..:</h1>
+            <div className="card-container">
+                {data.payments.map(payment => (
+                    <div key={payment.paymentID} className="card">
+                        <h2>{payment.amount}</h2>
+                        <p>{payment.description}</p>
+                        <p><strong>Paid By:</strong> {payment.paidBy}</p>
+                        <p><strong>Paid For:</strong> {payment.paidFor.join(', ')}</p>
+                        <p><strong>Date of Payment:</strong> {payment.dateOfPayment}</p>
+                        {/* <button onClick={() => NavigatePayment(listing.listingID, listing.description, listing.name, listing.participants, navigate)}>
+                            Edit
+                        </button> */}
+                    </div>
+                ))}
+            </div>
+        </div>
+    );
+};
+
+export default App;

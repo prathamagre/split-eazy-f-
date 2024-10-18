@@ -91,10 +91,10 @@ def deleteRecord():
 
     return jsonify({'status':'success', 'message':'paymentID deleted successfully.'}), 200
 
-@bp.route('/getAllRecords', methods = ('GET',))
+@bp.route('/getAllRecords', methods = ('POST',))
 def getAllRecords():
     '''
-        Send a GET request to get all the payment records for a listingID.
+        Send a POST request to get all the payment records for a listingID.
 
         Accepts JSON -
         {
