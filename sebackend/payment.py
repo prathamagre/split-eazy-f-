@@ -213,7 +213,7 @@ def settlement():
         return jsonify({"status": "failure", "message":"listingID not found in POSTed JSON."}), 400
     
     # getting the list of payments for the requested listingID
-    response = requests.get(
+    response = requests.post(
         '{}{}'.format(request.host_url,url_for("payment.getAllRecords")),
         json={'listingID':listingID}
     )
@@ -238,7 +238,7 @@ def settlement():
     toPayMatrix = [[0 for i in range(noOfParticipants)] for i in range(noOfParticipants)]
 
     for payment in paymentList:
-        splitAmount = payment['amount']/len(payment['paidFor'])
+        splitAmount = float(payment['amount'])/len(payment['paidFor'])
         for pfor in payment['paidFor']:
             toPayMatrix[pMap[pfor]][pMap[payment['paidBy']]] += splitAmount
 
