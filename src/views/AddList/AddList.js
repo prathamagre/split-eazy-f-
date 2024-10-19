@@ -1,12 +1,12 @@
+
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 function Add() {
     const [category, setCategory] = useState("");
     const [description, setDescription] = useState("");
-    const [participant1, setParticpant1] = useState("");
-    const [participant2, setParticpant2] = useState("");
-    
+    const [participants, setParticipants] = useState([""]); // Initialize with one participant input
+
     const navigate = useNavigate(); // To navigate programmatically
 
     const addList = async (e) => {
@@ -18,7 +18,11 @@ function Add() {
                     headers: {
                         "Content-Type": "application/json", // Indicate that the request body is JSON
                     },
-                    body: JSON.stringify({"name":category, "description":description, "participants":[participant1, participant2]}), // Convert the JavaScript object/array to JSON string
+                    body: JSON.stringify({
+                        "name": category,
+                        "description": description,
+                        "participants": participants.filter(p => p) // Filter out empty participant inputs
+                    }),
                 });
 
                 if (!response.ok) {
@@ -31,11 +35,26 @@ function Add() {
         // Clear form inputs
         setCategory("");
         setDescription("");
-        setParticpant1("");
-        setParticpant2("");
+        setParticipants([""]); // Reset participants
 
         // Navigate to the list page after submission
         navigate("/list-page");
+    };
+
+    const handleParticipantChange = (index, event) => {
+        const newParticipants = [...participants];
+        newParticipants[index] = event.target.value; // Update the value at the specific index
+        setParticipants(newParticipants);
+    };
+
+    const handleAddParticipant = () => {
+        setParticipants([...participants, ""]); // Add an empty string for a new input field
+    };
+
+    const handleRemoveParticipant = (index) => {
+        const newParticipants = [...participants];
+        newParticipants.splice(index, 1); // Remove the participant at the specified index
+        setParticipants(newParticipants);
     };
 
     return (
@@ -60,21 +79,24 @@ function Add() {
                     onChange={(e) => setDescription(e.target.value)} 
                 />
 
-                <label>Participant 1: </label>
-                <input 
-                    type="text" 
-                    name="participant-1" 
-                    value={participant1}
-                    onChange={(e) => setParticpant1(e.target.value)} 
-                />
+                <label>Participants: </label>
+                {participants.map((participant, index) => (
+                    <div key={index} className="participant-input">
+                        <input
+                            type="text"
+                            placeholder={`Participant ${index + 1}`}
+                            value={participant}
+                            onChange={(e) => handleParticipantChange(index, e)}
+                        />
+                        <button type="button" onClick={() => handleRemoveParticipant(index)}>
+                            Remove
+                        </button>
+                    </div>
+                ))}
 
-                <label>Participant 2: </label>
-                <input 
-                    type="text" 
-                    name="participant-2" 
-                    value={participant2}
-                    onChange={(e) => setParticpant2(e.target.value)} 
-                />
+                <button type="button" onClick={handleAddParticipant}>
+                    Add Participant
+                </button>
 
                 <button type="submit" className="submit-btn">
                     Submit
