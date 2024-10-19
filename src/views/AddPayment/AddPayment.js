@@ -7,7 +7,7 @@
 //     const [participant1, setParticpant1] = useState("");
 //     const [participant2, setParticpant2] = useState("");
 //     const [paidBy, setPaidBy] = useState("");
-    
+
 //     const navigate = useNavigate(); // To navigate programmatically
 
 //     const AddPayment = async (e) => {
@@ -63,7 +63,7 @@
 //                 />
 
 //                 <label>Paid By: </label>
-            
+
 //                 <select name = 'paidBy' placeholder="Paid by" value={paidBy} onChange={(e) => setPaidBy(e.target.value)}>
 //                     <option value="" disabled >
 //                         Paid By
@@ -114,10 +114,16 @@ function PaymentForm() {
         setPaidBy(e.target.value);
     };
 
-    // Handle change for Paid For dropdown
+    // Handle change for Paid For checkboxes
     const handlePaidForChange = (e) => {
-        const selectedOptions = Array.from(e.target.selectedOptions, option => option.value);
-        setPaidFor(selectedOptions);
+        const value = e.target.value;
+
+        // If the participant is already selected, remove them; if not, add them
+        setPaidFor((prev) =>
+            prev.includes(value)
+                ? prev.filter((participant) => participant !== value)
+                : [...prev, value]
+        );
     };
 
     const handleSubmit = (e) => {
@@ -128,6 +134,23 @@ function PaymentForm() {
 
     return (
         <form onSubmit={handleSubmit}>
+            {/* <label>Amount: </label>
+//                 <input
+                type='number'
+                name='amount'
+                placeholder='0'
+                value={category}
+                onChange={(e) => setCategory(e.target.value)}
+            />
+
+            <label>Description: </label>
+            <input
+                type='text'
+                name='description'
+                placeholder='Description about category'
+                value={description}
+                onChange={(e) => setDescription(e.target.value)}
+            /> */}
             <label>Paid By: </label>
             <select
                 name="paidBy"
@@ -146,18 +169,20 @@ function PaymentForm() {
             </select>
 
             <label>Paid For: </label>
-            <select
-                name="paidFor"
-                value={paidFor}
-                onChange={handlePaidForChange}
-                multiple
-            >
+            <div>
                 {participants.map((participant, index) => (
-                    <option key={index} value={participant}>
-                        {participant}
-                    </option>
+                    <div key={index}>
+                        <input
+                            type="checkbox"
+                            id={`paidFor-${index}`}
+                            value={participant}
+                            checked={paidFor.includes(participant)}
+                            onChange={handlePaidForChange}
+                        />
+                        <label htmlFor={`paidFor-${index}`}>{participant}</label>
+                    </div>
                 ))}
-            </select>
+            </div>
 
             <button type="submit">Submit</button>
         </form>

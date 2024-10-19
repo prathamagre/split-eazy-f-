@@ -1,6 +1,7 @@
 
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import AddList from "./../AddList/AddList.css";
 
 function Add() {
     const [category, setCategory] = useState("");
@@ -12,22 +13,22 @@ function Add() {
     const addList = async (e) => {
         e.preventDefault(); // Prevent form default submission behavior
 
-        try{
+        try {
             const response = await fetch("http://127.0.0.1:5000/listing/createListing", {
-                    method: "POST", // POST request to send data
-                    headers: {
-                        "Content-Type": "application/json", // Indicate that the request body is JSON
-                    },
-                    body: JSON.stringify({
-                        "name": category,
-                        "description": description,
-                        "participants": participants.filter(p => p) // Filter out empty participant inputs
-                    }),
-                });
+                method: "POST", // POST request to send data
+                headers: {
+                    "Content-Type": "application/json", // Indicate that the request body is JSON
+                },
+                body: JSON.stringify({
+                    "name": category,
+                    "description": description,
+                    "participants": participants.filter(p => p) // Filter out empty participant inputs
+                }),
+            });
 
-                if (!response.ok) {
-                    throw new Error('Failed to add listing');
-                }
+            if (!response.ok) {
+                throw new Error('Failed to add listing');
+            }
         } catch (error) {
             console.error("Error:", error.message);
         }
@@ -60,50 +61,59 @@ function Add() {
     return (
         <div>
             <div>AddList</div>
-            <form className='list-form' onSubmit={addList}>
-                <label>Category: </label>
-                <input 
-                    type='text' 
-                    name='category' 
-                    placeholder='Ex-Travel, food' 
-                    value={category} 
-                    onChange={(e) => setCategory(e.target.value)}
-                />
+            <div className='add-list-container'>
+                
+                <form className='list-form' onSubmit={addList}>
+                    <label>Category: </label>
+                    <input
+                        type='text'
+                        name='category'
+                        placeholder='Ex-Travel, food'
+                        value={category}
+                        onChange={(e) => setCategory(e.target.value)}
+                    />
 
-                <label>Description: </label>
-                <input 
-                    type='text' 
-                    name='description' 
-                    placeholder='Description about category' 
-                    value={description}
-                    onChange={(e) => setDescription(e.target.value)} 
-                />
+                    <label>Description: </label>
+                    <input
+                        type='text'
+                        name='description'
+                        placeholder='Description about category'
+                        value={description}
+                        onChange={(e) => setDescription(e.target.value)}
+                    />
 
-                <label>Participants: </label>
-                {participants.map((participant, index) => (
-                    <div key={index} className="participant-input">
-                        <input
-                            type="text"
-                            placeholder={`Participant ${index + 1}`}
-                            value={participant}
-                            onChange={(e) => handleParticipantChange(index, e)}
-                        />
-                        <button type="button" onClick={() => handleRemoveParticipant(index)}>
-                            Remove
-                        </button>
-                    </div>
-                ))}
+                    <label>Participants: </label>
+                    {participants.map((participant, index) => (
+                        <div key={index} className="participant-input">
+                            <input
+                                type="text"
+                                placeholder={`Participant ${index + 1}`}
+                                value={participant}
+                                onChange={(e) => handleParticipantChange(index, e)}
+                            />
+                            <button type="button"
+                                onClick={() => handleRemoveParticipant(index)}
+                                className='remove-btn'>
+                                Remove
+                            </button>
+                        </div>
+                    ))}
 
-                <button type="button" onClick={handleAddParticipant}>
-                    Add Participant
-                </button>
+                    <button
+                        type="button"
+                        onClick={handleAddParticipant}
+                        className='add-participant-btn'>
+                        Add Participant
+                    </button>
+                    <br></br>
 
-                <button type="submit" className="submit-btn">
-                    Submit
-                </button>
-            </form>
-        </div>
-    );
+                    <button type="submit" className="submit-btn">
+                        Submit
+                    </button>
+                </form>
+            </div>
+        </div>    
+            );
 }
 
-export default Add;
+            export default Add;

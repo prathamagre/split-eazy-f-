@@ -49,6 +49,29 @@ const NavigatePayment = (listingID, description, category, participants, navigat
     navigate("/payments-page"); // Trigger navigation after storing the data
 }
 
+const DeleteListing = async (listingID, navigate) => {
+    try {
+        const response = await fetch("http://127.0.0.1:5000/listing/deleteListing", {
+            method: "POST", // POST request to send data
+            headers: {
+                "Content-Type": "application/json", // Indicate that the request body is JSON
+            },
+            body: JSON.stringify({"listingID": listingID}), // Convert the JavaScript object/array to JSON string
+        });
+
+        if (!response.ok) {
+            throw new Error('Failed to fetch data');
+        }
+
+        //navigate("/list-page"); // Trigger navigation after the deletion
+        // Refresh the page after successful deletion
+        window.location.reload();
+
+    } catch (error) {
+        console.error(error.message); // Log the error to the console for debugging
+    }
+}
+
 const ListPage = ({ data }) => {
     const navigate = useNavigate(); // Declare useNavigate in this component
 
@@ -64,6 +87,9 @@ const ListPage = ({ data }) => {
                         <p><strong>Date of Creation:</strong> {listing.dateOfCreation}</p>
                         <button onClick={() => NavigatePayment(listing.listingID, listing.description, listing.name, listing.participants, navigate)}>
                             Open
+                        </button>
+                        <button onClick={() => DeleteListing(listing.listingID, navigate)}>
+                            Delete
                         </button>
                     </div>
                 ))}

@@ -1,45 +1,5 @@
 {
-  "1": {
-    "lastPaymentID": 2,
-    "payments": []
-  },
-  "2": {
-    "lastPaymentID": 1,
-    "payments": []
-  },
-  "3": {
-    "lastPaymentID": 0,
-    "payments": []
-  },
-  "4": {
-    "lastPaymentID": 0,
-    "payments": []
-  },
-  "5": {
-    "lastPaymentID": 0,
-    "payments": []
-  },
-  "6": {
-    "lastPaymentID": 0,
-    "payments": []
-  },
-  "7": {
-    "lastPaymentID": 0,
-    "payments": []
-  },
-  "8": {
-    "lastPaymentID": 0,
-    "payments": []
-  },
-  "9": {
-    "lastPaymentID": 0,
-    "payments": []
-  },
-  "10": {
-    "lastPaymentID": 0,
-    "payments": []
-  },
-  "11": {
+  "16": {
     "lastPaymentID": 0,
     "payments": []
   }
