@@ -7,6 +7,7 @@ import PaymentsPage from './views/PaymentsPage/PaymentsPage';
 import Home from './views/Home/Home';
 import AddList from './views/AddList/AddList';
 import AddPayment from './views/AddPayment/AddPayment';
+import SettlementPage from './views/SettlementPage/SettlementPage';
 
 const router = createBrowserRouter([
     {
@@ -28,6 +29,10 @@ const router = createBrowserRouter([
     {
         path: "/add-payment",
         element: <AddPayment/>
+    },
+    {
+        path: "/settlement-page",
+        element: <SettlementPage/>
     },
     {
         path: "*",

@@ -182,10 +182,10 @@ def editRecord():
 
     return jsonify({"status":"success", "message":"paymentID updated sucessfully."}), 200
     
-@bp.route('/settlement', methods = ('GET',))
+@bp.route('/settlement', methods = ('POST',))
 def settlement():
     '''
-        Send a GET request to get settlement data for a listingID.
+        Send a POST request to get settlement data for a listingID.
 
         Accepts JSON -
         {

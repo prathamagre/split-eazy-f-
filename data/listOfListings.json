@@ -1,5 +1,5 @@
 {
-  "lastListingID": 17,
+  "lastListingID": 18,
   "listings": [
     {
       "name": "Travel",
@@ -10,6 +10,18 @@
       ],
       "dateOfCreation": "19-Oct-2024",
       "listingID": 16
+    },
+    {
+      "name": "Food",
+      "description": "Sagar Gaire",
+      "participants": [
+        "Samarth",
+        "Sumit",
+        "Abhijeet",
+        "Pratham"
+      ],
+      "dateOfCreation": "19-Oct-2024",
+      "listingID": 18
     }
   ]
 }

@@ -144,7 +144,14 @@ const App = () => {
     // Conditional Rendering
     if (loading) return <h2>Loading...</h2>;
     if (error) return <h2>Error: {error}</h2>;
-    if (!data || !data.payments || data.payments.length === 0) return <h2>No Data Found</h2>;
+    if (!data || !data.payments || data.payments.length === 0) return (
+        <div>
+        <h1>{JSON.parse(localStorage.getItem("paymentPageData")).name}</h1>
+        <p>{JSON.parse(localStorage.getItem("paymentPageData")).participants.join(', ')}</p>
+        <hr/>
+        <h2>No Data Found</h2>
+        </div>
+    );
 
     return <ListPage data={data} setData={setData} setError={setError} />; // Pass setError to ListPage
 }
@@ -184,7 +191,9 @@ const ListPage = ({ data, setData, setError }) => { // Accept setError here
 
     return (
         <div>
-            <h1>Payments for ..:</h1>
+            <h1>{JSON.parse(localStorage.getItem("paymentPageData")).name}</h1>
+            <p>{JSON.parse(localStorage.getItem("paymentPageData")).participants.join(', ')}</p>
+            <hr/>
             <div className="card-container">
                 {data.payments.map(payment => (
                     <div key={payment.paymentID} className="card">
