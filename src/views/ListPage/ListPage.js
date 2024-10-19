@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import ListPageCss from "./../ListPage/ListPage.css";
+import Addimg from "./../../assets/add.png";
 
 const App = () => {
     const [data, setData] = useState(null); // Store JSON data
@@ -94,6 +96,10 @@ const ListPage = ({ data }) => {
                     </div>
                 ))}
             </div>
+         
+            <img
+            onClick={()=>navigate("/add-list")}
+            className="add-btn" src={Addimg}></img>
         </div>
     );
 };

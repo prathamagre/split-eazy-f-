@@ -1,5 +1,5 @@
 {
-  "lastListingID": 18,
+  "lastListingID": 20,
   "listings": [
     {
       "name": "Travel",
@@ -22,6 +22,20 @@
       ],
       "dateOfCreation": "19-Oct-2024",
       "listingID": 18
+    },
+    {
+      "name": "",
+      "description": "",
+      "participants": [],
+      "dateOfCreation": "19-Oct-2024",
+      "listingID": 19
+    },
+    {
+      "name": "",
+      "description": "",
+      "participants": [],
+      "dateOfCreation": "19-Oct-2024",
+      "listingID": 20
     }
   ]
 }

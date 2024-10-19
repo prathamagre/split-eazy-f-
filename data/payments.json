@@ -53,19 +53,6 @@
         "paymentID": 2
       },
       {
-        "amount": "200",
-        "description": "Station",
-        "paidBy": "Pratham",
-        "paidFor": [
-          "Samarth",
-          "Sumit",
-          "Abhijeet",
-          "Pratham"
-        ],
-        "dateOfPayment": "19-Oct-2024",
-        "paymentID": 3
-      },
-      {
         "amount": "3",
         "description": "test",
         "paidBy": "Sumit",
@@ -76,5 +63,13 @@
         "paymentID": 4
       }
     ]
+  },
+  "19": {
+    "lastPaymentID": 0,
+    "payments": []
+  },
+  "20": {
+    "lastPaymentID": 0,
+    "payments": []
   }
 }

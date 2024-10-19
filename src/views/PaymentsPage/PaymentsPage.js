@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import Addimg from "./../../assets/add.png";
+import SettleImg from "./../../assets/arrow.png";
 
 const App = () => {
     const [data, setData] = useState(null); // Store JSON data
@@ -16,7 +18,7 @@ const App = () => {
                     headers: {
                         "Content-Type": "application/json", // Indicate that the request body is JSON
                     },
-                    body: JSON.stringify({"listingID": listDetails.listingID}), // Convert the JavaScript object/array to JSON string
+                    body: JSON.stringify({ "listingID": listDetails.listingID }), // Convert the JavaScript object/array to JSON string
                 });
 
                 if (!response.ok) {
@@ -41,10 +43,10 @@ const App = () => {
     if (error) return <h2>Error: {error}</h2>;
     if (!data || !data.payments || data.payments.length === 0) return (
         <div>
-        <h1>{JSON.parse(localStorage.getItem("paymentPageData")).name}</h1>
-        <p>{JSON.parse(localStorage.getItem("paymentPageData")).participants.join(', ')}</p>
-        <hr/>
-        <h2>No Data Found</h2>
+            <h1>{JSON.parse(localStorage.getItem("paymentPageData")).name}</h1>
+            <p>{JSON.parse(localStorage.getItem("paymentPageData")).participants.join(', ')}</p>
+            <hr />
+            <h2>No Data Found</h2>
         </div>
     );
 
@@ -60,7 +62,7 @@ const DeletePayment = async (paymentID, navigate, setData, setError) => {
             headers: {
                 "Content-Type": "application/json", // Indicate that the request body is JSON
             },
-            body: JSON.stringify({"listingID": listingID, "paymentID": paymentID}), // Convert the JavaScript object/array to JSON string
+            body: JSON.stringify({ "listingID": listingID, "paymentID": paymentID }), // Convert the JavaScript object/array to JSON string
         });
 
         if (!response.ok) {
@@ -88,7 +90,7 @@ const ListPage = ({ data, setData, setError }) => { // Accept setError here
         <div>
             <h1>{JSON.parse(localStorage.getItem("paymentPageData")).name}</h1>
             <p>{JSON.parse(localStorage.getItem("paymentPageData")).participants.join(', ')}</p>
-            <hr/>
+            <hr />
             <div className="card-container">
                 {data.payments.map(payment => (
                     <div key={payment.paymentID} className="card">
@@ -103,7 +105,14 @@ const ListPage = ({ data, setData, setError }) => { // Accept setError here
                     </div>
                 ))}
             </div>
-        </div>
+            <img
+                onClick={() => navigate("/add-payment")}
+                className="add-btn" src={Addimg}></img>
+
+            <img
+                onClick={() => navigate("/settlement-page")}
+                className="settle-btn" src={SettleImg}></img>
+        </div >
     );
 };
 
