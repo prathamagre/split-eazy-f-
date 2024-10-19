@@ -1,0 +1,22 @@
+.settlement-container {
+    display: flex;                  /* Use flexbox for layout */
+    flex-direction: column;         /* Stack items vertically */
+    align-items: center;            /* Center items horizontally */
+    margin: 20px;                  /* Add some margin around the container */
+}
+
+.card {
+    background-color: #f8f9fa;     /* Light background for cards */
+    border: 1px solid #dee2e6;     /* Border to separate cards */
+    border-radius: 8px;            /* Rounded corners */
+    padding: 15px;                 /* Padding inside the card */
+    margin: 10px 0;                /* Margin between cards */
+    width: 100%;                   /* Make cards full width */
+    max-width: 400px;              /* Set a max width for cards */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    transition: transform 0.2s;    /* Smooth transition for hover effect */
+}
+
+.card:hover {
+    transform: translateY(-2px);   /* Slight lift effect on hover */
+}

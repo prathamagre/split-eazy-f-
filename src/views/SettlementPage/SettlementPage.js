@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import SettlementPageCss from "./../SettlementPage/SettlementPage.css"
 
 const SettlementPage = () => {
     const [data, setData] = useState(null); // To store the fetched data
@@ -46,8 +47,17 @@ const SettlementPage = () => {
 
     return (
         <div>
-            <h1>Settlement Information</h1>
-            <pre>{JSON.stringify(data, null, 2)}</pre> {/* Display fetched data */}
+            <h1>{JSON.parse(localStorage.getItem("paymentPageData")).name}</h1>
+            <p>{JSON.parse(localStorage.getItem("paymentPageData")).participants.join(', ')}</p>
+            <hr/>
+            <h3>Settlement Information</h3>
+            <div className='settlement-container'>
+                {data.settlement.map((s) => (
+                    <div className='card'>
+                        <p>{s[0]} pays {s[1]} Rs. {s[2]}.</p>
+                    </div>
+                ))}
+            </div>
             {/* Optionally, you can render the data in a more user-friendly way */}
         </div>
     );

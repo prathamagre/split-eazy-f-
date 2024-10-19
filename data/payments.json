@@ -42,19 +42,6 @@
     "lastPaymentID": 12,
     "payments": [
       {
-        "amount": "100",
-        "description": "Ice Cream",
-        "paidBy": "Samarth",
-        "paidFor": [
-          "Samarth",
-          "Sumit",
-          "Abhijeet",
-          "Pratham"
-        ],
-        "dateOfPayment": "19-Oct-2024",
-        "paymentID": 1
-      },
-      {
         "amount": "190",
         "description": "Paneer",
         "paidBy": "Samarth",
