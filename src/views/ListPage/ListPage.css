@@ -1,0 +1,90 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #ffffff; /* Soft yellow-green background */
+    margin: 0;
+    padding: 20px;
+}
+
+h1 {
+    color: #a5d152; /* Yellow-green for the heading */
+    text-align: center;
+}
+
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    max-height: 70vh; /* Limit height for scrolling */
+    overflow-y: auto; /* Enable vertical scrolling */
+    padding: 10px;
+    border-radius: 8px; /* Rounded corners */
+    background-color: #ffffff; /* White background for cards */
+}
+
+.card {
+    background-color: #edf39a; /* Light yellow-green for card background */
+    border: 1px solid #c4e17f; /* Slightly darker yellow-green border */
+    border-radius: 5px; /* Rounded corners for cards */
+    padding: 15px;
+    margin: 10px;
+    width: 300px; /* Fixed width for cards */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow effect */
+}
+
+.card .delete-btn{
+    background-color: rgb(214, 103, 103);
+}
+
+.card button {
+    background-color: #a5d152; /* Yellow-green for buttons */
+    color: white; /* White text for buttons */
+    border: none; /* No border */
+    border-radius: 5px; /* Rounded corners */
+    padding: 8px 12px; /* Padding for buttons */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s; /* Smooth transition */
+    margin-right: 10px; /* Space between buttons */
+}
+
+.card button:last-child {
+    margin-right: 0; /* Remove margin from the last button */
+}
+
+.card h2 {
+    color: #a5d152; /* Yellow-green for card titles */
+}
+
+.card p {
+    color: #82b74b; /* Darker yellow-green for card text */
+}
+
+.add-btn {
+    position: fixed; /* Fixes the button's position */
+    bottom: 20px; /* Distance from the bottom */
+    right: 20px; /* Distance from the right */
+    background-color: #a5d152; /* Yellow-green background for button */
+    color: white; /* White text */
+    border: none; /* No border */
+    border-radius: 5px; /* Rounded corners */
+    padding: 10px 15px; /* Padding for the button */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s; /* Smooth transition */
+}
+
+.add-btn:hover {
+    background-color: #92c23d; /* Darker yellow-green on hover */
+}
+
+button {
+    background-color: #82b74b; /* Dark yellow-green for other buttons */
+    color: white; /* White text for buttons */
+    border: none; /* No border */
+    border-radius: 5px; /* Rounded corners */
+    padding: 8px 12px; /* Padding for buttons */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s; /* Smooth transition */
+}
+
+button:hover {
+    background-color: #a5d152; /* Yellow-green on hover */
+}

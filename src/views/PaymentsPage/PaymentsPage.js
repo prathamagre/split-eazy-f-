@@ -37,6 +37,7 @@ const App = () => {
         fetchData();
     }, []); // Runs only on mount
 
+    const navigate = useNavigate();
     // Conditional Rendering
     if (loading) return <h2>Loading...</h2>;
     if (error) return <h2>Error: {error}</h2>;
@@ -45,7 +46,11 @@ const App = () => {
             <h1>{JSON.parse(localStorage.getItem("paymentPageData")).name}</h1>
             <p>{JSON.parse(localStorage.getItem("paymentPageData")).participants.join(', ')}</p>
             <hr />
-            <h2>No Data Found</h2>
+            <h2>No Payment Records.</h2>
+            <div className="buttons-container">
+                <button onClick={() => navigate("/settlement-page")} className="settle-btn">Settlement</button>
+                <button onClick={() => navigate("/add-payment")} className="add-btn">Add Payment</button>
+            </div>
         </div>
     );
 
@@ -98,15 +103,17 @@ const ListPage = ({ data, setData, setError }) => { // Accept setError here
                         <p><strong>Paid By:</strong> {payment.paidBy}</p>
                         <p><strong>Paid For:</strong> {payment.paidFor.join(', ')}</p>
                         <p><strong>Date of Payment:</strong> {payment.dateOfPayment}</p>
-                        <button onClick={() => DeletePayment(payment.paymentID, navigate, setData, setError)}>
+                        <button onClick={() => DeletePayment(payment.paymentID, navigate, setData, setError)} className="delete-btn">
                             Delete
                         </button>
                     </div>
                 ))}
             </div>
-            <button onClick = {() => navigate("/add-payment")}
-                className="add-btn">Add Payment</button>
-            <button className="settle-btn">Settlement</button>
+            <div className="buttons-container">
+                <button onClick={() => navigate("/settlement-page")} className="settle-btn">Settlement</button>
+                <button onClick={() => navigate("/add-payment")} className="add-btn">Add Payment</button>
+            </div>
+
         </div >
     );
 };

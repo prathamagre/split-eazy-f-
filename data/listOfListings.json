@@ -1,39 +1,17 @@
 {
-  "lastListingID": 22,
+  "lastListingID": 1,
   "listings": [
     {
-      "name": "Food",
-      "description": "Sagar Gaire",
+      "name": "Trip to Karond",
+      "description": "No Description",
       "participants": [
-        "Samarth",
         "Sumit",
-        "Abhijeet",
-        "Pratham"
-      ],
-      "dateOfCreation": "19-Oct-2024",
-      "listingID": 18
-    },
-    {
-      "name": "Tekri",
-      "description": "Test",
-      "participants": [
-        "Dave",
-        "Bill",
-        "Bob"
+        "Samarth",
+        "Pratham",
+        "Abhijeet"
       ],
       "dateOfCreation": "22-Oct-2024",
-      "listingID": 21
-    },
-    {
-      "name": "Test",
-      "description": "sample description",
-      "participants": [
-        "A",
-        "B",
-        "C"
-      ],
-      "dateOfCreation": "22-Oct-2024",
-      "listingID": 22
+      "listingID": 1
     }
   ]
 }

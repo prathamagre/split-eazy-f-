@@ -1,35 +1,5 @@
 {
-  "18": {
-    "lastPaymentID": 12,
-    "payments": [
-      {
-        "amount": "190",
-        "description": "Paneer",
-        "paidBy": "Samarth",
-        "paidFor": [
-          "Sumit",
-          "Abhijeet"
-        ],
-        "dateOfPayment": "19-Oct-2024",
-        "paymentID": 2
-      },
-      {
-        "amount": "3",
-        "description": "test",
-        "paidBy": "Sumit",
-        "paidFor": [
-          "Sumit"
-        ],
-        "dateOfPayment": "19-Oct-2024",
-        "paymentID": 4
-      }
-    ]
-  },
-  "21": {
-    "lastPaymentID": 0,
-    "payments": []
-  },
-  "22": {
+  "1": {
     "lastPaymentID": 0,
     "payments": []
   }

@@ -1,4 +1,173 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #ffffff; /* White background */
+    margin: 0;
+    padding: 20px;
+}
+
+h1 {
+    color: #000000; /* Black color for heading */
+    text-align: center;
+}
+
+h1 {
+    color: #82b74b; /* Dark yellow-green color */
+    text-align: center;
+}
+
+.card-container {
+    display: flex;
+    flex-direction: column; /* Stack cards vertically */
+    align-items: center; /* Center cards horizontally */
+    max-height: 70vh; /* Limit height for scrolling */
+    overflow-y: auto; /* Enable vertical scrolling */
+    padding: 10px;
+    background-color: transparent; /* Make background transparent */
+    margin-bottom: 80px; /* Prevent overlap with fixed buttons */
+}
+
+.card {
+    background-color: #edf39a; /* Light yellow-green for card background */
+    border: 1px solid #92c23d; /* Darker yellow-green border */
+    border-radius: 5px; /* Rounded corners for cards */
+    padding: 15px;
+    margin: 10px 0; /* Margin between stacked cards */
+    width: 300px; /* Fixed width for cards */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow effect */
+}
+
+.card h2 {
+    color: #92c23d; /* Darker yellow-green for card titles */
+}
+
+.card p {
+    color: #92c23d; /* Darker yellow-green for card text */
+}
+
+.add-btn, .settle-btn {
+    background-color: #82b74b; /* Yellow-green background for buttons */
+    color: white; /* White text */
+    border: none; /* No border */
+    border-radius: 5px; /* Rounded corners */
+    padding: 10px 15px; /* Padding for the buttons */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s; /* Smooth transition */
+}
+
+.add-btn {
+    margin-right: 10px; /* Space between buttons */
+}
+
 .settle-btn {
-    display: block; /* Override default inline-block */
-    width: auto;    /* Allow button to expand */
-  }
+    margin-right: 130px; /* Space to the right of the settle button */
+}
+
+.add-btn:hover, .settle-btn:hover {
+    background-color: #6fa832; /* Darker yellow-green on hover */
+}
+
+button {
+    background-color: #92c23d; /* Dark yellow-green for other buttons */
+    color: white; /* White text for buttons */
+    border: none; /* No border */
+    border-radius: 5px; /* Rounded corners */
+    padding: 8px 12px; /* Padding for buttons */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s; /* Smooth transition */
+}
+
+button:hover {
+    background-color: #82b74b; /* Yellow-green on hover */
+}
+
+.buttons-container {
+    position: fixed; /* Fixes the buttons' position */
+    bottom: 20px; /* Distance from the bottom */
+    right: 20px; /* Distance from the right */
+    display: flex; /* Use flexbox for horizontal alignment */
+}
+
+.card-container {
+    margin-bottom: 80px; /* Prevent overlap with fixed buttons */
+}
+
+
+.card-container {
+    display: flex;
+    flex-direction: column; /* Stack cards vertically */
+    align-items: center; /* Center cards horizontally */
+    max-height: 70vh; /* Limit height for scrolling */
+    overflow-y: auto; /* Enable vertical scrolling */
+    padding: 10px;
+    background-color: transparent; /* Keep background transparent */
+    margin-bottom: 80px; /* Prevent overlap with fixed buttons */
+}
+
+.card {
+    background-color: #edf39a; /* Light yellow-green for card background */
+    border: 1px solid #92c23d; /* Darker yellow-green border */
+    border-radius: 5px; /* Rounded corners for cards */
+    padding: 15px;
+    margin: 10px 0; /* Margin between stacked cards */
+    width: 300px; /* Fixed width for cards */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow effect */
+}
+
+.card h2 {
+    color: #000000; /* Black for card titles */
+}
+
+.card p {
+    color: #000000; /* Black for card text */
+}
+
+.add-btn, .settle-btn {
+    background-color: #68b01a; /* Yellow-green background for buttons */
+    color: white; /* White text */
+    border: none; /* No border */
+    border-radius: 5px; /* Rounded corners */
+    padding: 10px 15px; /* Padding for the buttons */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s; /* Smooth transition */
+}
+
+.add-btn {
+    margin-right: 10px; /* Space between buttons */
+}
+
+.settle-btn {
+    margin-right: 130px; /* Space to the right of the settle button */
+}
+
+.add-btn:hover, .settle-btn:hover {
+    background-color: #6fa832; /* Darker yellow-green on hover */
+}
+
+.card .delete-btn{
+    background-color: rgb(230, 51, 51);
+}
+
+button {
+    background-color: #6fa019; /* Dark yellow-green for other buttons */
+    color: white; /* White text */
+    border: none; /* No border */
+    border-radius: 5px; /* Rounded corners */
+    padding: 8px 12px; /* Padding for buttons */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s; /* Smooth transition */
+}
+
+button:hover {
+    background-color: #82b74b; /* Yellow-green on hover */
+}
+
+.buttons-container {
+    position: fixed; /* Fixes the buttons' position */
+    bottom: 20px; /* Distance from the bottom */
+    right: 20px; /* Distance from the right */
+    display: flex; /* Use flexbox for horizontal alignment */
+}
+
+.card-container {
+    margin-bottom: 80px; /* Prevent overlap with fixed buttons */
+}

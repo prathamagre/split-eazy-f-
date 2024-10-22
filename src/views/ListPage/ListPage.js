@@ -29,10 +29,18 @@ const App = () => {
         fetchData();
     }, []); // Runs only on mount
 
+    const navigate = useNavigate(); // Declare useNavigate in this component
     // Conditional Rendering
     if (loading) return <h2>Loading...</h2>;
     if (error) return <h2>Error: {error}</h2>;
-    if (!data || !data.listings || data.listings.length === 0) return <h2>No Data Found</h2>;
+    if (!data || !data.listings || data.listings.length === 0) return (
+        <div>
+            <h2>No Listing Exists.</h2>
+            <button
+            onClick={()=>navigate("/add-list")}
+            className="add-btn">Add Listing</button>
+        </div>
+    );
 
     return <ListPage data={data} />;
 }
@@ -89,7 +97,7 @@ const ListPage = ({ data }) => {
                         <button onClick={() => NavigatePayment(listing.listingID, listing.description, listing.name, listing.participants, navigate)}>
                             Open
                         </button>
-                        <button onClick={() => DeleteListing(listing.listingID, navigate)}>
+                        <button onClick={() => DeleteListing(listing.listingID, navigate)} className="delete-btn">
                             Delete
                         </button>
                     </div>
