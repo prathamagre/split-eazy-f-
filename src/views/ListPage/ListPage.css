@@ -1,42 +1,40 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: #ffffff; /* Soft yellow-green background */
+    background-color: #ffffff; /* White background */
     margin: 0;
     padding: 20px;
 }
 
 h1 {
-    color: #a5d152; /* Yellow-green for the heading */
+    color: #4caf50; /* Dark green for the heading */
     text-align: center;
 }
 
 .card-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    max-height: 70vh; /* Limit height for scrolling */
-    overflow-y: auto; /* Enable vertical scrolling */
-    padding: 10px;
-    border-radius: 8px; /* Rounded corners */
-    background-color: #ffffff; /* White background for cards */
+    display: flex;                  /* Use flexbox for layout */
+    flex-direction: column;         /* Stack items vertically */
+    align-items: center;            /* Center items horizontally */
+    margin: 20px;                  /* Add some margin around the container */
+    width:100%;
 }
 
 .card {
-    background-color: #edf39a; /* Light yellow-green for card background */
-    border: 1px solid #c4e17f; /* Slightly darker yellow-green border */
-    border-radius: 5px; /* Rounded corners for cards */
-    padding: 15px;
-    margin: 10px;
-    width: 300px; /* Fixed width for cards */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow effect */
+    background-color: #f8f9fa;     /* Light background for cards */
+    border: 1px solid #dee2e6;     /* Border to separate cards */
+    border-radius: 8px;            /* Rounded corners */
+    padding: 15px;                 /* Padding inside the card */
+    margin: 10px 0;                /* Margin between cards */
+    width: 100%;                   /* Make cards full width */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    transition: transform 0.2s;    /* Smooth transition for hover effect */
 }
 
-.card .delete-btn{
-    background-color: rgb(214, 103, 103);
+.card .delete-btn {
+    background-color: rgb(214, 103, 103); /* Keep the red background for delete-btn */
 }
 
 .card button {
-    background-color: #a5d152; /* Yellow-green for buttons */
+    background-color: #4caf50; /* Dark green for buttons */
     color: white; /* White text for buttons */
     border: none; /* No border */
     border-radius: 5px; /* Rounded corners */
@@ -51,18 +49,18 @@ h1 {
 }
 
 .card h2 {
-    color: #a5d152; /* Yellow-green for card titles */
+    color: #000000; /* Dark green for card titles */
 }
 
 .card p {
-    color: #82b74b; /* Darker yellow-green for card text */
+    color: #000000; /* Slightly darker green for card text */
 }
 
 .add-btn {
     position: fixed; /* Fixes the button's position */
     bottom: 20px; /* Distance from the bottom */
     right: 20px; /* Distance from the right */
-    background-color: #a5d152; /* Yellow-green background for button */
+    background-color: #1c9720; /* Dark green background for button */
     color: white; /* White text */
     border: none; /* No border */
     border-radius: 5px; /* Rounded corners */
@@ -72,11 +70,11 @@ h1 {
 }
 
 .add-btn:hover {
-    background-color: #92c23d; /* Darker yellow-green on hover */
+    background-color: #2c612e; /* Darker green on hover */
 }
 
 button {
-    background-color: #82b74b; /* Dark yellow-green for other buttons */
+    background-color: #388e3c; /* Slightly darker green for other buttons */
     color: white; /* White text for buttons */
     border: none; /* No border */
     border-radius: 5px; /* Rounded corners */
@@ -86,5 +84,5 @@ button {
 }
 
 button:hover {
-    background-color: #a5d152; /* Yellow-green on hover */
+    background-color: #4caf50; /* Dark green on hover */
 }

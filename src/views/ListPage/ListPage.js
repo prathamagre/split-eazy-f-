@@ -86,7 +86,7 @@ const ListPage = ({ data }) => {
 
     return (
         <div>
-            <h1>Fetched Listings:</h1>
+            <h1>Listings (Groups of Payments)</h1>
             <div className="card-container">
                 {data.listings.map(listing => (
                     <div key={listing.listingID} className="card">
