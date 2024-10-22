@@ -1,3 +1,89 @@
-.list-form{
-    display: flex;
+/* General styles */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f5f5f5;
+  margin: 0;
+  padding: 20px;
+}
+
+/* Form styles */
+form {
+  display: grid;
+  grid-template-columns: 1fr 2fr; /* Adjust column widths as needed */
+  gap: 1rem;
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 30px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  background-color: #fff;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+label {
+  grid-column: 1;
+  text-align: right;
+  font-weight: bold;
+}
+
+input[type="text"],
+input[type="number"],
+select {
+  grid-column: 2;
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+input[type="checkbox"] {
+  margin-right: 5px;
+}
+
+button[type="submit"] {
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 12px 20px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  font-size: 14px;
+  grid-column: 1 / span 2; /* Make the button span both columns */
+}
+
+button[type="submit"]:hover {
+  background-color: #388e3c;
+}
+
+.error {
+  color: red;
+  font-size: 12px;
+  margin-top: 5px;
+}
+
+/* Responsive layout options */
+
+@media (max-width: 768px) {
+  /* For smaller screens */
+  form {
+      grid-template-columns: 1fr; /* Single column for smaller screens */
+  }
+}
+
+@media (min-width: 992px) {
+  /* For larger screens */
+  form {
+      flex-direction: row;
+      gap: 2rem;
+  }
+
+  label {
+      flex: 0 0 auto;
+  }
+
+  input, select {
+      flex: 1 0 auto;
+  }
 }

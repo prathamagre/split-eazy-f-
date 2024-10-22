@@ -1,156 +1,97 @@
-.add-list-container {
-    font-family: 'Arial', sans-serif;
-    background-color: #f8f9fa;
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5; /* Light gray background */
     margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-}
-
-
-
-/* Add form container styles */
-.list-form {
-    max-width: 600px;
-    margin: 30px auto;
     padding: 20px;
-    background-color: #ffffff;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    border: 1px solid #e0e0e0;
-    transition: box-shadow 0.3s ease;
-}
-
-.list-form:hover {
-    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
-}
-
-/* Form labels */
-.list-form label {
-    font-size: 1.1rem;
-    font-weight: bold;
-    color: #495057;
-    display: block;
-    margin-bottom: 8px;
-    text-align: left;
-}
-
-/* Input fields */
-.list-form input {
-    width: 90%;
-    padding: 12px;
-    margin-bottom: 16px;
-    font-size: 1rem;
-    border: 1px solid #ced4da;
-    border-radius: 4px;
-    outline: none;
-    transition: border-color 0.3s ease;
-}
-
-/* Input field focus effect */
-.list-form input:focus {
-    border-color: #007bff;
-    box-shadow: 0 0 4px rgba(0, 123, 255, 0.5);
-}
-
-/* Add Participant Button */
-.add-participant-btn
-{
-    background-color: #28a745;
-    margin-top: 10px;
-    padding: 12px 20px;
-    font-size: 1rem;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    outline: none;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-    color: white;
-}
-
-.add-participant-btn:hover {
-    background-color: #218838;
-    transform: scale(1.05);
-}
-
-/* Submit Button */
-.submit-btn {
-    background-color: #007bff;
-    margin-top: 20px;
-    padding: 12px 20px;
-    font-size: 1rem;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    outline: none;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-    color: white;
-}
-
-.submit-btn:hover {
-    background-color: #0056b3;
-    transform: scale(1.05);
-}
-
-/* Participant input container */
-.participant-input {
+  }
+  
+  /* AddList Container */
+  .add-list-container {
+    max-width: 500px; /* Adjust width as needed */
+    margin: 0 auto; /* Center the container horizontally */
+    padding: 20px;
+    border: 1px solid #ddd; /* Light gray border */
+    border-radius: 5px; /* Rounded corners */
+    background-color: #fff; /* White background */
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow effect */
+  }
+  
+  /* List Form */
+  .list-form {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
+    gap: 1rem; /* Spacing between form elements */
+  }
+  
+  .list-form label {
+    display: block; /* Change to block to justify to the left */
+    width: auto; /* Remove fixed width */
+    text-align: left;
+    font-weight: bold;
+  }
+  
+  .list-form input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+  }
+  
+  /* Participant Inputs */
+  .participant-input {
+    display: flex;
     align-items: center;
-    margin-bottom: 10px;
-}
-
-.participant-input input {
-    width: 85%;
-    margin-right: 10px;
-}
-
-/* Remove button for participant */
-.remove-btn {
-    padding: 6px 8px;
-    background-color: #dc3545;
+    gap: 1rem;
+  }
+  
+  .participant-input input[type="text"] {
+    flex: 1; /* Allow participant input to expand */
+  }
+  
+  .participant-input button.remove-btn {
+    background-color: #e74c3c; /* Red for remove button */
+    color: white;
     border: none;
-    color: rgb(41, 23, 121);
-    border-radius: 40px;
+    border-radius: 5px;
+    padding: 5px 10px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
-    color: #ffffff;
-    margin-top: -10px;
-}
-
-.remove-btn:hover{
-    background-color: #c82333;
-}
-
-/* Category and description inputs focus styles */
-.list-form input:focus {
-    border-color: #007bff;
-    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-    .list-form {
-        padding: 15px;
-    }
-
-    .list-form input {
-        padding: 10px;
-    }
-
-    .list-form button {
-        width: 100%;
-    }
-
-    .participant-input {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
-    .participant-input button {
-        margin-top: 5px;
-    }
-}
-
+    transition: background-color 0.3s;
+  }
+  
+  .participant-input button.remove-btn:hover {
+    background-color: #c0392b; /* Darker red on hover */
+  }
+  
+  /* Add Participant Button */
+  .add-participant-btn {
+    background-color: #4caf50; /* Green for add button */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .add-participant-btn:hover {
+    background-color: #388e3c; /* Darker green on hover */
+  }
+  
+  /* Submit Button */
+  .submit-btn {
+    background-color: #4caf50; /* Green for submit button */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 12px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-size: 14px;
+    margin-top: 1rem; /* Add some spacing at the top */
+  }
+  
+  .submit-btn:hover {
+    background-color: #388e3c; /* Darker green on hover */
+  }

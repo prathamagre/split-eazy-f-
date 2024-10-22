@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import AddPaymentCss from './../AddPayment/AddPayment.css';
 
 function PaymentForm() {
     const [participants, setParticipants] = useState(JSON.parse(localStorage.getItem("paymentPageData")).participants); // Example participants
@@ -75,7 +76,7 @@ function PaymentForm() {
     const navigate = useNavigate(); // Declare useNavigate in this component
     return (
         <form onSubmit={(e)=>{handleSubmit(e,navigate);}}>
-            <label>Amount: {'\u20b9'}</label>
+            <label>Amount ({'\u20b9'})</label>
             <input
                 type='number'
                 name='amount'
@@ -85,7 +86,7 @@ function PaymentForm() {
                 required
             />
 
-            <label>Payment Description: </label>
+            <label>Payment Description</label>
             <input
                 type='text'
                 name='paymentDescription'
@@ -95,7 +96,7 @@ function PaymentForm() {
                 required
             />
 
-            <label>Paid By: </label>
+            <label>Paid By</label>
             <select
                 name="paidBy"
                 value={paidBy}
@@ -113,7 +114,7 @@ function PaymentForm() {
                 ))}
             </select>
 
-            <label>Paid For: </label>
+            <label>Paid For</label>
             <div>
                 {participants.map((participant, index) => (
                     <div key={index}>
