@@ -13,16 +13,20 @@ a simple application where the following purpose is served -
 
 ## Details about Frontend
 
-The frontend is a static website written mainly with frontend
-technologies - `ReactJS` and `Javascript` that communicates
-with the backend over `http` using `json`.
+The frontend is a static website written in `Javascript`.
 
-*Main frontend author -* @prathamagre
+The user-interface is written using `ReactJS`and communicates 
+with the backend over `http` using `fetchAPI`. `JSON` format
+is used for request & response.
+
+*Main frontend author - @prathamagre (for ReactJS)* \
+*Secondary frontend author - @SmartyGrasshopper (for backend
+interaction and data logic)*
 
 ## Details about Backend
 
 The backend is an API written in `Python3` programming language
-mainly using its `flask` framework. It communicates with the
+using the `flask` framework. It communicates with the
 frontend using `json` over `http`. Suitable response codes, especially
 `400`, `404` and `200` are provided with the return response.
 
@@ -89,4 +93,4 @@ settlement route causes issue or maybe any timeouts since the settlement route d
 compared to the other routes. Whether requests.get is the issue can be easily tested by removing
 the requests and using the actual code of the requested route instead (so there is no requests.get).
 
-*Main backend and overall technical-design author -* @SmartyGrasshopper
+*Main backend and overall technical-design author - @SmartyGrasshopper*

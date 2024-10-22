@@ -64,25 +64,26 @@ function Add() {
             <div className='add-list-container'>
                 
                 <form className='list-form' onSubmit={addList}>
-                    <label>Category: </label>
+                    <label>Title </label>
                     <input
                         type='text'
                         name='category'
-                        placeholder='Ex-Travel, food'
+                        placeholder='Summer Trip 2024'
                         value={category}
                         onChange={(e) => setCategory(e.target.value)}
+                        required
                     />
 
-                    <label>Description: </label>
+                    <label>Description </label>
                     <input
                         type='text'
                         name='description'
-                        placeholder='Description about category'
+                        placeholder='A short description (optional)'
                         value={description}
                         onChange={(e) => setDescription(e.target.value)}
                     />
 
-                    <label>Participants: </label>
+                    <label>Participants </label>
                     {participants.map((participant, index) => (
                         <div key={index} className="participant-input">
                             <input
@@ -90,6 +91,7 @@ function Add() {
                                 placeholder={`Participant ${index + 1}`}
                                 value={participant}
                                 onChange={(e) => handleParticipantChange(index, e)}
+                                required
                             />
                             <button type="button"
                                 onClick={() => handleRemoveParticipant(index)}

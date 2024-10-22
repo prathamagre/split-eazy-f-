@@ -1,1 +1,0 @@
-flask --app "sebackend:create_app()" run

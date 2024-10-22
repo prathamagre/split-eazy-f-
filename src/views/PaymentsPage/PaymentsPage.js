@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import Addimg from "./../../assets/add.png";
-import SettleImg from "./../../assets/arrow.png";
+import PaymentPageCss from "./../PaymentsPage/PaymentsPage.css";
 
 const App = () => {
     const [data, setData] = useState(null); // Store JSON data
@@ -38,6 +37,7 @@ const App = () => {
         fetchData();
     }, []); // Runs only on mount
 
+    const navigate = useNavigate();
     // Conditional Rendering
     if (loading) return <h2>Loading...</h2>;
     if (error) return <h2>Error: {error}</h2>;
@@ -46,7 +46,11 @@ const App = () => {
             <h1>{JSON.parse(localStorage.getItem("paymentPageData")).name}</h1>
             <p>{JSON.parse(localStorage.getItem("paymentPageData")).participants.join(', ')}</p>
             <hr />
-            <h2>No Data Found</h2>
+            <h2>No Payment Records.</h2>
+            <div className="buttons-container">
+                <button onClick={() => navigate("/settlement-page")} className="settle-btn">Settlement</button>
+                <button onClick={() => navigate("/add-payment")} className="add-btn">Add Payment</button>
+            </div>
         </div>
     );
 
@@ -99,19 +103,17 @@ const ListPage = ({ data, setData, setError }) => { // Accept setError here
                         <p><strong>Paid By:</strong> {payment.paidBy}</p>
                         <p><strong>Paid For:</strong> {payment.paidFor.join(', ')}</p>
                         <p><strong>Date of Payment:</strong> {payment.dateOfPayment}</p>
-                        <button onClick={() => DeletePayment(payment.paymentID, navigate, setData, setError)}>
+                        <button onClick={() => DeletePayment(payment.paymentID, navigate, setData, setError)} className="delete-btn">
                             Delete
                         </button>
                     </div>
                 ))}
             </div>
-            <img
-                onClick={() => navigate("/add-payment")}
-                className="add-btn" src={Addimg}></img>
+            <div className="buttons-container">
+                <button onClick={() => navigate("/settlement-page")} className="settle-btn">Settlement</button>
+                <button onClick={() => navigate("/add-payment")} className="add-btn">Add Payment</button>
+            </div>
 
-            <img
-                onClick={() => navigate("/settlement-page")}
-                className="settle-btn" src={SettleImg}></img>
         </div >
     );
 };

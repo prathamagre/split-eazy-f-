@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import ListPageCss from "./../ListPage/ListPage.css";
-import Addimg from "./../../assets/add.png";
 
 const App = () => {
     const [data, setData] = useState(null); // Store JSON data
@@ -30,10 +29,18 @@ const App = () => {
         fetchData();
     }, []); // Runs only on mount
 
+    const navigate = useNavigate(); // Declare useNavigate in this component
     // Conditional Rendering
     if (loading) return <h2>Loading...</h2>;
     if (error) return <h2>Error: {error}</h2>;
-    if (!data || !data.listings || data.listings.length === 0) return <h2>No Data Found</h2>;
+    if (!data || !data.listings || data.listings.length === 0) return (
+        <div>
+            <h2>No Listing Exists.</h2>
+            <button
+            onClick={()=>navigate("/add-list")}
+            className="add-btn">Add Listing</button>
+        </div>
+    );
 
     return <ListPage data={data} />;
 }
@@ -79,7 +86,7 @@ const ListPage = ({ data }) => {
 
     return (
         <div>
-            <h1>Fetched Listings:</h1>
+            <h1>Listings (Groups of Payments)</h1>
             <div className="card-container">
                 {data.listings.map(listing => (
                     <div key={listing.listingID} className="card">
@@ -90,16 +97,16 @@ const ListPage = ({ data }) => {
                         <button onClick={() => NavigatePayment(listing.listingID, listing.description, listing.name, listing.participants, navigate)}>
                             Open
                         </button>
-                        <button onClick={() => DeleteListing(listing.listingID, navigate)}>
+                        <button onClick={() => DeleteListing(listing.listingID, navigate)} className="delete-btn">
                             Delete
                         </button>
                     </div>
                 ))}
             </div>
          
-            <img
+            <button
             onClick={()=>navigate("/add-list")}
-            className="add-btn" src={Addimg}></img>
+            className="add-btn">Add Listing</button>
         </div>
     );
 };
