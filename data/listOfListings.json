@@ -1,17 +1,38 @@
 {
-  "lastListingID": 1,
+  "lastListingID": 4,
   "listings": [
     {
-      "name": "Trip to Karond",
-      "description": "No Description",
+      "name": "Trip to Mall",
+      "description": "",
       "participants": [
-        "Sumit",
-        "Samarth",
-        "Pratham",
-        "Abhijeet"
+        "A"
       ],
       "dateOfCreation": "22-Oct-2024",
-      "listingID": 1
+      "listingID": 2
+    },
+    {
+      "name": "Summer Camp",
+      "description": "Summer camp organised by NCC for the year 2024.",
+      "participants": [
+        "Sam",
+        "Dave",
+        "Karishma",
+        "Lisa"
+      ],
+      "dateOfCreation": "22-Oct-2024",
+      "listingID": 3
+    },
+    {
+      "name": "Minor Project - 1",
+      "description": "Expenses incurred during the development of minor project 1 of B.Tech.",
+      "participants": [
+        "Abhijeet",
+        "Sumit",
+        "Pratham",
+        "Samarth"
+      ],
+      "dateOfCreation": "22-Oct-2024",
+      "listingID": 4
     }
   ]
 }
