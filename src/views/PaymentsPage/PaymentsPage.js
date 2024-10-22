@@ -100,6 +100,7 @@ const ListPage = ({ data, setData, setError }) => { // Accept setError here
                     <div key={payment.paymentID} className="card">
                         <h2> {'\u20b9'} {payment.amount}</h2>
                         <p>{payment.description}</p>
+                        <hr/>
                         <p><strong>Paid By:</strong> {payment.paidBy}</p>
                         <p><strong>Paid For:</strong> {payment.paidFor.join(', ')}</p>
                         <p><strong>Date of Payment:</strong> {payment.dateOfPayment}</p>
