@@ -20,23 +20,3 @@
 .card:hover {
     transform: translateY(-2px);   /* Slight lift effect on hover */
 }
-
-.settle-btn {
-    position: fixed;                  /* Fix the button to a specific position */
-    bottom: 20px;                     /* Position it 20px from the bottom */
-    right: 80px;                      /* Position it 20px from the right */
-    background-color: white;      /* Use the button color */
-    color: white;                     /* White text */
-    border: solid black 1.5px;                     /* No border */      
-    border-radius: 50px;              /* Rounded button */
-    font-size: 18px;                  /* Increase font size */
-    cursor: pointer;                  /* Change cursor to pointer on hover */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add subtle shadow */
-    transition: background-color 0.3s ease; /* Smooth background-color transition */
-    height: 50px;
-    width: 50px;
-}
-
-.settle-btn:hover {
-   border: solid black;
-}

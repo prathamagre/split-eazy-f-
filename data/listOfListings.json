@@ -1,16 +1,6 @@
 {
-  "lastListingID": 20,
+  "lastListingID": 22,
   "listings": [
-    {
-      "name": "Travel",
-      "description": "auto to karond",
-      "participants": [
-        "Sumit",
-        "Samarth"
-      ],
-      "dateOfCreation": "19-Oct-2024",
-      "listingID": 16
-    },
     {
       "name": "Food",
       "description": "Sagar Gaire",
@@ -24,18 +14,26 @@
       "listingID": 18
     },
     {
-      "name": "",
-      "description": "",
-      "participants": [],
-      "dateOfCreation": "19-Oct-2024",
-      "listingID": 19
+      "name": "Tekri",
+      "description": "Test",
+      "participants": [
+        "Dave",
+        "Bill",
+        "Bob"
+      ],
+      "dateOfCreation": "22-Oct-2024",
+      "listingID": 21
     },
     {
-      "name": "",
-      "description": "",
-      "participants": [],
-      "dateOfCreation": "19-Oct-2024",
-      "listingID": 20
+      "name": "Test",
+      "description": "sample description",
+      "participants": [
+        "A",
+        "B",
+        "C"
+      ],
+      "dateOfCreation": "22-Oct-2024",
+      "listingID": 22
     }
   ]
 }

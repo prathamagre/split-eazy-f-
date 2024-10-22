@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import Addimg from "./../../assets/add.png";
-import SettleImg from "./../../assets/arrow.png";
+import PaymentPageCss from "./../PaymentsPage/PaymentsPage.css";
 
 const App = () => {
     const [data, setData] = useState(null); // Store JSON data
@@ -105,13 +104,9 @@ const ListPage = ({ data, setData, setError }) => { // Accept setError here
                     </div>
                 ))}
             </div>
-            <img
-                onClick={() => navigate("/add-payment")}
-                className="add-btn" src={Addimg}></img>
-
-            <img
-                onClick={() => navigate("/settlement-page")}
-                className="settle-btn" src={SettleImg}></img>
+            <button onClick = {() => navigate("/add-payment")}
+                className="add-btn">Add Payment</button>
+            <button className="settle-btn">Settlement</button>
         </div >
     );
 };

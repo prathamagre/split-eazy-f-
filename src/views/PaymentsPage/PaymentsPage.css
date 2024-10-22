@@ -1,0 +1,4 @@
+.settle-btn {
+    display: block; /* Override default inline-block */
+    width: auto;    /* Allow button to expand */
+  }
