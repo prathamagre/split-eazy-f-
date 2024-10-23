@@ -54,7 +54,7 @@ const SettlementPage = () => {
             <div className='settlement-container'>
                 {data.settlement.map((s) => (
                     <div className='card'>
-                        <p>{s[0]} pays {s[1]} Rs. {s[2]}.</p>
+                        <p>{s[0]} pays {s[1]} {'\u20b9'}{s[2]}.</p>
                     </div>
                 ))}
             </div>

@@ -92,6 +92,7 @@ const ListPage = ({ data }) => {
                     <div key={listing.listingID} className="card">
                         <h2>{listing.name}</h2>
                         <p>{listing.description}</p>
+                        <hr/>
                         <p><strong>Participants:</strong> {listing.participants.join(', ')}</p>
                         <p><strong>Date of Creation:</strong> {listing.dateOfCreation}</p>
                         <button onClick={() => NavigatePayment(listing.listingID, listing.description, listing.name, listing.participants, navigate)}>
