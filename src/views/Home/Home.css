@@ -1,37 +1,65 @@
-/* General styles */
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f5f5f5;
-    margin: 0;
-    padding: 20px;
-  }
-  
-  /* Container for the main content */
-  .container {
-    max-width: 800px;
-    margin: 0 auto; /* Center the container horizontally */
-    padding: 20px;
-  }
-  
-  /* Heading */
-  h1 {
-    text-align: center;
-    margin-bottom: 20px;
-  }
-  
-  /* Button */
-  .get-started-btn {
-    display: block; /* Make the button block-level for centering */
-    margin: 0 auto; /* Center the button horizontally */
-    padding: 15px 30px;
-    background-color: #4caf50;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-  }
-  
-  .get-started-btn:hover {
-    background-color: #388e3c;
-  }
+/* Home page container */
+.home-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+  background-color: #f5f5f5; /* Light gray background */
+  height: 100vh; /* Full viewport height */
+}
+
+/* Section for the header and tagline */
+.home-header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.home-header h2 {
+  font-size: 3em;
+  color: #2d6a4f; /* Dark green for title */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: bold;
+  margin: 0;
+}
+
+.home-header p {
+  font-size: 1.2em;
+  color: #4a4a4a; /* Muted gray for description */
+  font-family: 'Roboto', sans-serif;
+  margin-top: 10px;
+  margin-bottom: 30px;
+}
+
+/* Style for the image section */
+.home-image img {
+  width: 100%;
+  max-width: 400px; /* Limit max width */
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+/* "Get Started" button styling */
+.get-started-btn {
+  background-color: #52b788; /* Lighter green button */
+  color: #ffffff;
+  padding: 12px 24px;
+  border-radius: 25px;
+  font-size: 1.2em;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+/* Button hover effect */
+.get-started-btn:hover {
+  background-color: #40916c; /* Darker green on hover */
+  transform: scale(1.05); /* Slight scale-up effect */
+}
+
+/* Button focus effect */
+.get-started-btn:focus {
+  outline: none;
+  box-shadow: 0 0 10px rgba(81, 179, 107, 0.5); /* Light green glow */
+}
