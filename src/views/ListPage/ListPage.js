@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import ListPageCss from "./../ListPage/ListPage.css";
+import  "./../ListPage/ListPage.css";
+import Navbar from "./../../components/navbar/Navbar";
 
 const App = () => {
     const [data, setData] = useState(null); // Store JSON data
@@ -86,6 +87,7 @@ const ListPage = ({ data }) => {
 
     return (
         <div>
+            
             <h1>Listings (Groups of Payments)</h1>
             <div className="card-container">
                 {data.listings.map(listing => (
