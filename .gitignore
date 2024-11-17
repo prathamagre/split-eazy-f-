@@ -33,3 +33,6 @@ data/
 
 # python bytecode
 sebackend/__pycache__/
+
+# editor related ignores
+.vscode/
