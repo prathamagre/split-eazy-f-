@@ -1,7 +1,9 @@
 
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import AddList from "./../AddList/AddList.css";
+import "./../AddList/AddList.css";
+import Navbar from "./../../components/navbar/Navbar"
+import AddListImg from "./../../assests/add-list img.png"
 
 function Add() {
     const [category, setCategory] = useState("");
@@ -60,62 +62,64 @@ function Add() {
 
     return (
         <div>
-            <div>AddList</div>
-            <div className='add-list-container'>
-                
-                <form className='list-form' onSubmit={addList}>
-                    <label>Title </label>
-                    <input
-                        type='text'
-                        name='category'
-                        placeholder='Summer Trip 2024'
-                        value={category}
-                        onChange={(e) => setCategory(e.target.value)}
-                        required
-                    />
+            <Navbar />
+            <h2 className='addlist-heading'>AddList</h2>
+            <div className='addlist-content-container'>
+                <img className='add-list-img' src={AddListImg}></img>
 
-                    <label>Description </label>
-                    <input
-                        type='text'
-                        name='description'
-                        placeholder='A short description (optional)'
-                        value={description}
-                        onChange={(e) => setDescription(e.target.value)}
-                    />
+                    <form className='list-form' onSubmit={addList}>
+                        <label>Title </label>
+                        <input
+                            type='text'
+                            name='category'
+                            placeholder='Summer Trip 2024'
+                            value={category}
+                            onChange={(e) => setCategory(e.target.value)}
+                            required
+                        />
 
-                    <label>Participants </label>
-                    {participants.map((participant, index) => (
-                        <div key={index} className="participant-input">
-                            <input
-                                type="text"
-                                placeholder={`Participant ${index + 1}`}
-                                value={participant}
-                                onChange={(e) => handleParticipantChange(index, e)}
-                                required
-                            />
-                            <button type="button"
-                                onClick={() => handleRemoveParticipant(index)}
-                                className='remove-btn'>
-                                Remove
-                            </button>
-                        </div>
-                    ))}
+                        <label>Description </label>
+                        <input
+                            type='text'
+                            name='description'
+                            placeholder='A short description (optional)'
+                            value={description}
+                            onChange={(e) => setDescription(e.target.value)}
+                        />
 
-                    <button
-                        type="button"
-                        onClick={handleAddParticipant}
-                        className='add-participant-btn'>
-                        Add Participant
-                    </button>
-                    <br></br>
+                        <label>Participants </label>
+                        {participants.map((participant, index) => (
+                            <div key={index} className="participant-input">
+                                <input
+                                    type="text"
+                                    placeholder={`Participant ${index + 1}`}
+                                    value={participant}
+                                    onChange={(e) => handleParticipantChange(index, e)}
+                                    required
+                                />
+                                <button type="button"
+                                    onClick={() => handleRemoveParticipant(index)}
+                                    className='remove-btn'>
+                                    Remove
+                                </button>
+                            </div>
+                        ))}
 
-                    <button type="submit" className="submit-btn">
-                        Submit
-                    </button>
-                </form>
+                        <button
+                            type="button"
+                            onClick={handleAddParticipant}
+                            className='add-participant-btn'>
+                            Add Participant
+                        </button>
+                        <br></br>
+
+                        <button type="submit" className="submit-btn">
+                            Submit
+                        </button>
+                    </form>
             </div>
-        </div>    
-            );
+        </div>
+    );
 }
 
-            export default Add;
+export default Add;

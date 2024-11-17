@@ -1,97 +1,164 @@
 /* General Styles */
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f5f5f5; /* Light gray background */
-    margin: 0;
-    padding: 20px;
-  }
-  
-  /* AddList Container */
+  font-family: Arial, sans-serif;
+  background-color: #f5f5f5; /* Light gray background */
+  margin: 0;
+  padding: 20px;
+}
+
+.addlist-heading {
+  margin-left: 20px;
+  color: #2d6a4f;
+  font-weight: bold;
+  font-size: 2.2rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  text-shadow: 1px 1px 2px rgba(81, 179, 107, 0.4);
+  border-left: 5px solid #52b788;
+  padding-left: 15px;
+  margin-bottom: 20px;
+  transition: transform 0.3s, text-shadow 0.3s;
+}
+
+.addlist-heading:hover {
+  transform: translateX(5px);
+  text-shadow: 2px 2px 4px rgba(81, 179, 107, 0.6);
+}
+
+
+.addlist-heading:hover {
+  transform: translateX(5px); /* Slight movement to the right */
+  text-shadow: 2px 2px 4px rgba(81, 179, 107, 0.6); /* Enhanced glow on hover */
+}
+
+
+.addlist-content-container{
+  display: flex;
+  margin-top:-30px ;
+}
+
+.add-list-img{
+  height: 500px;
+}
+
+/* AddList Container */
+.add-list-container {
+  max-width: 500px; /* Adjust width as needed */
+  width: 500px;
+  margin: 0 auto; /* Center the container horizontally */
+  padding: 20px;
+  border: 1px solid #ddd; /* Light gray border */
+  border-radius: 5px; /* Rounded corners */
+  background-color: #fff; /* White background */
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow effect */
+}
+
+/* List Form */
+.list-form {
+  max-width: 500px; /* Adjust width as needed */
+  width: 500px;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem; /* Spacing between form elements */
+  padding: 40px;
+  height: 400px;
+  overflow-y: scroll;
+}
+
+.list-form label {
+  display: block; /* Change to block to justify to the left */
+  width: auto; /* Remove fixed width */
+  text-align: left;
+  font-weight: bold;
+}
+
+.list-form input[type="text"] {
+  width: 95%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+/* Participant Inputs */
+.participant-input {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.participant-input input[type="text"] {
+  flex: 1; /* Allow participant input to expand */
+}
+
+
+.participant-input button.remove-btn {
+  background-color: #e94957; /* Bright red for remove */
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 12px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.participant-input button.remove-btn:hover {
+  background-color: #b71c1c; /* Darker red on hover */
+}
+
+/* Add Participant Button */
+.add-participant-btn {
+  background-color: #52b788; /* SplitEasy green */
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 15px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.add-participant-btn:hover {
+  background-color: #40916c; /* Darker green hover effect */
+}
+
+/* Submit Button */
+.submit-btn {
+  background-color: #2d6a4f; /* Dark green for strong call-to-action */
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 20px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.submit-btn:hover {
+  background-color: #1b4332; /* Even darker green on hover */
+  transform: scale(1.05); /* Slight scale-up */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
   .add-list-container {
-    max-width: 500px; /* Adjust width as needed */
-    margin: 0 auto; /* Center the container horizontally */
-    padding: 20px;
-    border: 1px solid #ddd; /* Light gray border */
-    border-radius: 5px; /* Rounded corners */
-    background-color: #fff; /* White background */
-    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow effect */
+      padding: 15px;
   }
-  
-  /* List Form */
-  .list-form {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem; /* Spacing between form elements */
-  }
-  
+
   .list-form label {
-    display: block; /* Change to block to justify to the left */
-    width: auto; /* Remove fixed width */
-    text-align: left;
-    font-weight: bold;
+      font-size: 0.9rem;
   }
-  
+
   .list-form input[type="text"] {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 14px;
+      font-size: 0.9rem;
   }
-  
-  /* Participant Inputs */
-  .participant-input {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-  }
-  
-  .participant-input input[type="text"] {
-    flex: 1; /* Allow participant input to expand */
-  }
-  
-  .participant-input button.remove-btn {
-    background-color: #e74c3c; /* Red for remove button */
-    color: white;
-    border: none;
-    border-radius: 5px;
-    padding: 5px 10px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-  }
-  
-  .participant-input button.remove-btn:hover {
-    background-color: #c0392b; /* Darker red on hover */
-  }
-  
-  /* Add Participant Button */
-  .add-participant-btn {
-    background-color: #4caf50; /* Green for add button */
-    color: white;
-    border: none;
-    border-radius: 5px;
-    padding: 10px 15px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-  }
-  
-  .add-participant-btn:hover {
-    background-color: #388e3c; /* Darker green on hover */
-  }
-  
-  /* Submit Button */
+
+  .add-participant-btn,
   .submit-btn {
-    background-color: #4caf50; /* Green for submit button */
-    color: white;
-    border: none;
-    border-radius: 5px;
-    padding: 12px 20px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-    font-size: 14px;
-    margin-top: 1rem; /* Add some spacing at the top */
+      font-size: 0.9rem;
+      padding: 10px 15px;
   }
-  
-  .submit-btn:hover {
-    background-color: #388e3c; /* Darker green on hover */
-  }
+}

@@ -31,14 +31,6 @@
   margin-bottom: 30px;
 }
 
-/* Style for the image section */
-.home-image img {
-  width: 100%;
-  max-width: 400px; /* Limit max width */
-  border-radius: 10px;
-  margin-bottom: 20px;
-}
-
 /* "Get Started" button styling */
 .get-started-btn {
   background-color: #52b788; /* Lighter green button */
@@ -66,11 +58,12 @@
 
 .top-content{
   display: flex;
+
   margin: 30px 0;
 }
 .home-img{
-  height: 75vh;
-  width: 200vh;
+  height: 500px;
+  width: 500px;
   border-radius: 10px;
 }
 .top-cont{
@@ -87,4 +80,41 @@
 .cont-name{
   color: #52b788;
   font-size: 60px;
+}
+
+.features-heading{
+  text-align: center;
+  border-bottom: solid;
+  width: 230px;
+  margin: 10px auto;
+  font-size: 50px;
+  color: #1e4131;
+}
+
+.features-card-container{
+  display: flex;
+  flex-wrap: wrap;
+  margin: 10px auto;
+}
+
+.feature-card{
+  border: none;
+  width: 400px;
+  align-items: center;
+  text-align: center;
+  margin: 10px 13px;
+  padding: 10px;
+  border-radius: 10px;
+  background-color: #ffffff;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+}
+.feature-card:hover {
+  transform: translateY(-5px); /* Slight lift on hover */
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2), 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.feature-img{
+  height: 150px;
 }

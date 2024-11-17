@@ -41,7 +41,7 @@ input[type="checkbox"] {
   margin-right: 5px;
 }
 
-button[type="submit"] {
+/* button[type="submit"] {
   background-color: #4caf50;
   color: white;
   border: none;
@@ -50,12 +50,12 @@ button[type="submit"] {
   cursor: pointer;
   transition: background-color 0.3s;
   font-size: 14px;
-  grid-column: 1 / span 2; /* Make the button span both columns */
+  grid-column: 1 / span 2; 
 }
 
 button[type="submit"]:hover {
   background-color: #388e3c;
-}
+} */
 
 .error {
   color: red;
