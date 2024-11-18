@@ -1,88 +1,189 @@
+/* General Styling */
 body {
-    font-family: Arial, sans-serif;
-    background-color: #ffffff; /* White background */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
-    padding: 20px;
+    padding: 0;
+    background-color: #f5f5f5;
 }
 
-h1 {
-    color: #4caf50; /* Dark green for the heading */
-    text-align: center;
+/* Page Heading */
+.page-heading {
+    color: #2d6a4f;
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin: 20px 0;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.1);
 }
 
+.list-page-container{
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: -10px;
+}
+
+.listing-img{
+    height: 450px;
+    margin-right: 100px;
+}
+
+/* Card Container */
+/* .card-container {
+    justify-items: center;
+    margin: 20px auto;
+    padding: 10px 10px;
+    border: solid #1b4332;
+    max-width: 600px;
+    overflow-y: scroll;
+    border-radius: 10px;
+    flex-wrap: nowrap;
+    height: 400px;
+} */
 .card-container {
-    display: flex;                  /* Use flexbox for layout */
-    flex-direction: column;         /* Stack items vertically */
-    align-items: center;            /* Center items horizontally */
-    margin: 20px;                  /* Add some margin around the container */
-    width:100%;
+    display: flex; /* Flexbox for aligning cards */
+    flex-direction: column; /* Stack cards vertically */
+    gap: 10px; /* Add spacing between cards */
+    margin: 20px auto;
+    padding: 10px; /* Inner padding for container */
+    border: 3px solid #274d3d; /* Border color to complement the theme */
+    background: #f5f5f5; /* Neutral background */
+    max-width: 600px; /* Limit container width */
+    height: 400px; /* Set a fixed height */
+    overflow-y: auto; /* Enable vertical scrolling */
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+    border-radius: 10px; /* Smooth rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add slight shadow for depth */
+    flex-wrap: nowrap;
 }
 
+/* Webkit Scrollbar Customization for Vertical Scrolling */
+.card-container::-webkit-scrollbar {
+    width: 8px; /* Narrow scrollbar width */
+}
+
+.card-container::-webkit-scrollbar-track {
+    background: #b7e4c7; /* Light green for track */
+    border-radius: 8px; /* Rounded scrollbar track */
+}
+
+.card-container::-webkit-scrollbar-thumb {
+    background: #40916c; /* Darker green for scrollbar thumb */
+    border-radius: 8px; /* Rounded scrollbar thumb */
+}
+
+.card-container::-webkit-scrollbar-thumb:hover {
+    background: #1b4332; /* Darkest green on hover */
+}
+
+
+/* Card */
 .card {
-    background-color: #f8f9fa;     /* Light background for cards */
-    border: 1px solid #dee2e6;     /* Border to separate cards */
-    border-radius: 8px;            /* Rounded corners */
-    padding: 15px;                 /* Padding inside the card */
-    margin: 10px 0;                /* Margin between cards */
-    width: 100%;                   /* Make cards full width */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
-    transition: transform 0.2s;    /* Smooth transition for hover effect */
+    background: linear-gradient(145deg, #d8f3dc, #b7e4c7); /* Gradient background */
+    border: 2px solid #95d5b2; /* Border color to complement the theme */
+    border-radius: 10px; /* Smooth rounded corners */
+    padding: 20px;
+    width: 300px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1), inset 0 0 10px rgba(0, 0, 0, 0.05); /* Depth effect */
+    transition: transform 0.2s, box-shadow 0.3s;
+    position: relative;
 }
 
-.card .delete-btn {
-    background-color: rgb(214, 103, 103); /* Keep the red background for delete-btn */
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2), inset 0 0 15px rgba(0, 0, 0, 0.1);
 }
 
-.card button {
-    background-color: #4caf50; /* Dark green for buttons */
-    color: white; /* White text for buttons */
-    border: none; /* No border */
-    border-radius: 5px; /* Rounded corners */
-    padding: 8px 12px; /* Padding for buttons */
-    cursor: pointer; /* Pointer cursor on hover */
-    transition: background-color 0.3s; /* Smooth transition */
-    margin-right: 10px; /* Space between buttons */
-}
-
-.card button:last-child {
-    margin-right: 0; /* Remove margin from the last button */
-}
-
+/* Card Title */
 .card h2 {
-    color: #000000; /* Dark green for card titles */
+    color: #1b4332;
+    font-size: 1.5rem;
+    margin: 0 0 10px;
 }
 
+/* Card Description */
 .card p {
-    color: #000000; /* Slightly darker green for card text */
+    color: #081c15;
+    font-size: 1rem;
+    line-height: 1.4;
+    margin: 10px 0;
 }
 
-.add-btn {
-    position: fixed; /* Fixes the button's position */
-    bottom: 20px; /* Distance from the bottom */
-    right: 20px; /* Distance from the right */
-    background-color: #1c9720; /* Dark green background for button */
-    color: white; /* White text */
-    border: none; /* No border */
-    border-radius: 5px; /* Rounded corners */
-    padding: 10px 15px; /* Padding for the button */
-    cursor: pointer; /* Pointer cursor on hover */
-    transition: background-color 0.3s; /* Smooth transition */
+/* Participants Text */
+.card strong {
+    color: #2d6a4f;
 }
 
-.add-btn:hover {
-    background-color: #2c612e; /* Darker green on hover */
+/* Date Badge */
+.date {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: #40916c;
+    color: #ffffff;
+    font-size: 0.9rem;
+    padding: 5px 10px;
+    border-radius: 0 8px 0 8px;
+    font-weight: bold;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
-button {
-    background-color: #388e3c; /* Slightly darker green for other buttons */
-    color: white; /* White text for buttons */
-    border: none; /* No border */
-    border-radius: 5px; /* Rounded corners */
-    padding: 8px 12px; /* Padding for buttons */
-    cursor: pointer; /* Pointer cursor on hover */
-    transition: background-color 0.3s; /* Smooth transition */
+/* Buttons in Cards */
+.card button {
+    font-size: 0.9rem;
+    font-weight: 600;
+    padding: 6px 12px;
+    border-radius: 8px;
+    border: solid transparent; /* Border for hover effect */
+    cursor: pointer;
+    transition: background-color 0.3s ease, border 0.3s ease;
+    margin-right: 10px;
 }
 
-button:hover {
-    background-color: #4caf50; /* Dark green on hover */
+/* Open Button */
+.card button:first-child {
+    background-color: #52b788;
+    color: white;
+}
+
+.card button:first-child:hover {
+    background-color: #40916c;
+    border: 2px solid #2d6a4f; /* Add border color on hover */
+}
+
+/* Delete Button */
+.card button.delete-btn {
+    background-color: #e94957; /* Bright red for remove */
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 8px 12px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.card button.delete-btn:hover {
+    background-color: #d00000;
+}
+
+/* Add Button */
+.add-list-btn {
+    background-color: #2d6a4f; 
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 20px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  position: fixed;
+  right: 30px;
+  bottom: 30px;
+
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.add-list-btn:hover {
+    transform: translateY(-3px);
+    background-color: #40916c;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
 }

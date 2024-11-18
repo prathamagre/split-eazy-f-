@@ -6,7 +6,7 @@ body {
   padding: 20px;
 }
 
-.addlist-heading {
+.page-heading {
   margin-left: 20px;
   color: #2d6a4f;
   font-weight: bold;
@@ -19,17 +19,10 @@ body {
   transition: transform 0.3s, text-shadow 0.3s;
 }
 
-.addlist-heading:hover {
+.page-heading:hover {
   transform: translateX(5px);
   text-shadow: 2px 2px 4px rgba(81, 179, 107, 0.6);
 }
-
-
-.addlist-heading:hover {
-  transform: translateX(5px); /* Slight movement to the right */
-  text-shadow: 2px 2px 4px rgba(81, 179, 107, 0.6); /* Enhanced glow on hover */
-}
-
 
 .addlist-content-container{
   display: flex;
@@ -125,7 +118,7 @@ body {
 
 /* Submit Button */
 .submit-btn {
-  background-color: #2d6a4f; /* Dark green for strong call-to-action */
+  background-color: #2d6a4f; 
   color: white;
   border: none;
   border-radius: 8px;

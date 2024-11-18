@@ -53,7 +53,7 @@
 /* Button focus effect */
 .get-started-btn:focus {
   outline: none;
-  box-shadow: 0 0 10px rgba(81, 179, 107, 0.5); /* Light green glow */
+  box-shadow: 0 0 10px #51b36b80; /* Light green glow */
 }
 
 .top-content{

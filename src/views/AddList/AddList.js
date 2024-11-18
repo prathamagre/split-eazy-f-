@@ -63,7 +63,7 @@ function Add() {
     return (
         <div>
             <Navbar />
-            <h2 className='addlist-heading'>AddList</h2>
+            <h2 className='page-heading'>AddList</h2>
             <div className='addlist-content-container'>
                 <img className='add-list-img' src={AddListImg}></img>
 

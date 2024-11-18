@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import  "./../ListPage/ListPage.css";
+import "./../ListPage/ListPage.css";
 import Navbar from "./../../components/navbar/Navbar";
+import ListingImg from "./../../assests/listing.png"
 
 const App = () => {
     const [data, setData] = useState(null); // Store JSON data
@@ -38,8 +39,8 @@ const App = () => {
         <div>
             <h2>No Listing Exists.</h2>
             <button
-            onClick={()=>navigate("/add-list")}
-            className="add-btn">Add Listing</button>
+                onClick={() => navigate("/add-list")}
+                className="add-btn">Add Listing</button>
         </div>
     );
 
@@ -55,7 +56,7 @@ const NavigatePayment = (listingID, description, category, participants, navigat
             "participants": participants,
         })
     );
-    
+
     navigate("/payments-page"); // Trigger navigation after storing the data
 }
 
@@ -66,7 +67,7 @@ const DeleteListing = async (listingID, navigate) => {
             headers: {
                 "Content-Type": "application/json", // Indicate that the request body is JSON
             },
-            body: JSON.stringify({"listingID": listingID}), // Convert the JavaScript object/array to JSON string
+            body: JSON.stringify({ "listingID": listingID }), // Convert the JavaScript object/array to JSON string
         });
 
         if (!response.ok) {
@@ -87,29 +88,31 @@ const ListPage = ({ data }) => {
 
     return (
         <div>
-            
-            <h1>Listings (Groups of Payments)</h1>
-            <div className="card-container">
-                {data.listings.map(listing => (
-                    <div key={listing.listingID} className="card">
-                        <h2>{listing.name}</h2>
-                        <p>{listing.description}</p>
-                        <hr/>
-                        <p><strong>Participants:</strong> {listing.participants.join(', ')}</p>
-                        <p><strong>Date of Creation:</strong> {listing.dateOfCreation}</p>
-                        <button onClick={() => NavigatePayment(listing.listingID, listing.description, listing.name, listing.participants, navigate)}>
-                            Open
-                        </button>
-                        <button onClick={() => DeleteListing(listing.listingID, navigate)} className="delete-btn">
-                            Delete
-                        </button>
-                    </div>
-                ))}
+            <Navbar />
+            <h2 className='page-heading'>Listings (Groups of Payments)</h2>
+            <div className='list-page-container'>
+                <img className="listing-img" src={ListingImg}></img>
+                <div className="card-container">
+                    {data.listings.map(listing => (
+                        <div key={listing.listingID} className="card">
+                            <h2>{listing.name}</h2>
+                            <p>{listing.description}</p>
+                            <p><strong>Participants:</strong> {listing.participants.join(', ')}</p>
+                            <div className='date'>{listing.dateOfCreation}</div>
+                            <button className='add-participant-btn' onClick={() => NavigatePayment(listing.listingID, listing.description, listing.name, listing.participants, navigate)}>
+                                Open
+                            </button>
+                            <button onClick={() => DeleteListing(listing.listingID, navigate)} className="delete-btn">
+                                Delete
+                            </button>
+                        </div>
+                    ))}
+                </div>
             </div>
-         
+
             <button
-            onClick={()=>navigate("/add-list")}
-            className="add-btn">Add Listing</button>
+                onClick={() => navigate("/add-list")}
+                className="add-list-btn">Add Listing</button>
         </div>
     );
 };
