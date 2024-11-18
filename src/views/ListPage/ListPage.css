@@ -26,63 +26,51 @@ body {
     margin-right: 100px;
 }
 
-/* Card Container */
-/* .card-container {
-    justify-items: center;
-    margin: 20px auto;
-    padding: 10px 10px;
-    border: solid #1b4332;
-    max-width: 600px;
-    overflow-y: scroll;
-    border-radius: 10px;
-    flex-wrap: nowrap;
-    height: 400px;
-} */
 .card-container {
-    display: flex; /* Flexbox for aligning cards */
-    flex-direction: column; /* Stack cards vertically */
-    gap: 10px; /* Add spacing between cards */
+    display: flex; 
+    flex-direction: column; 
+    gap: 10px; 
     margin: 20px auto;
-    padding: 10px; /* Inner padding for container */
-    border: 3px solid #274d3d; /* Border color to complement the theme */
-    background: #f5f5f5; /* Neutral background */
-    max-width: 600px; /* Limit container width */
-    height: 400px; /* Set a fixed height */
-    overflow-y: auto; /* Enable vertical scrolling */
-    overflow-x: hidden; /* Prevent horizontal scrolling */
-    border-radius: 10px; /* Smooth rounded corners */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add slight shadow for depth */
+    padding: 10px; 
+    border: 3px solid #274d3d;
+    background: #f5f5f5;
+    max-width: 600px; 
+    height: 400px; 
+    overflow-y: auto; 
+    overflow-x: hidden; 
+    border-radius: 10px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
     flex-wrap: nowrap;
 }
 
-/* Webkit Scrollbar Customization for Vertical Scrolling */
+
 .card-container::-webkit-scrollbar {
-    width: 8px; /* Narrow scrollbar width */
+    width: 8px; 
 }
 
 .card-container::-webkit-scrollbar-track {
-    background: #b7e4c7; /* Light green for track */
-    border-radius: 8px; /* Rounded scrollbar track */
+    background: #b7e4c7; 
+    border-radius: 8px; 
 }
 
 .card-container::-webkit-scrollbar-thumb {
-    background: #40916c; /* Darker green for scrollbar thumb */
-    border-radius: 8px; /* Rounded scrollbar thumb */
+    background: #40916c;
+    border-radius: 8px; 
 }
 
 .card-container::-webkit-scrollbar-thumb:hover {
-    background: #1b4332; /* Darkest green on hover */
+    background: #1b4332; 
 }
 
 
 /* Card */
 .card {
-    background: linear-gradient(145deg, #d8f3dc, #b7e4c7); /* Gradient background */
-    border: 2px solid #95d5b2; /* Border color to complement the theme */
-    border-radius: 10px; /* Smooth rounded corners */
+    background: linear-gradient(145deg, #d8f3dc, #b7e4c7); 
+    border: 2px solid #95d5b2; 
+    border-radius: 10px;
     padding: 20px;
     width: 300px;
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1), inset 0 0 10px rgba(0, 0, 0, 0.05); /* Depth effect */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1), inset 0 0 10px rgba(0, 0, 0, 0.05); 
     transition: transform 0.2s, box-shadow 0.3s;
     position: relative;
 }
