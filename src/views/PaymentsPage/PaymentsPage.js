@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import PaymentPageCss from "./../PaymentsPage/PaymentsPage.css";
+import "./../PaymentsPage/PaymentsPage.css";
+import Navbar from "./../../components/navbar/Navbar"
 
 const App = () => {
     const [data, setData] = useState(null); // Store JSON data

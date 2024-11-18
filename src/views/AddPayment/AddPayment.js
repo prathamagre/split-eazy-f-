@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import AddPaymentCss from './../AddPayment/AddPayment.css';
+import './../AddPayment/AddPayment.css';
+import Navbar from "./../../components/navbar/Navbar";
+import PaymentImg from "./../../assests/add-payment-img.png";
 
 function PaymentForm() {
     const [participants, setParticipants] = useState(JSON.parse(localStorage.getItem("paymentPageData")).participants); // Example participants
@@ -37,7 +39,7 @@ function PaymentForm() {
         }
 
         const payload = {
-            "listingID":JSON.parse(localStorage.getItem("paymentPageData")).listingID,
+            "listingID": JSON.parse(localStorage.getItem("paymentPageData")).listingID,
             "amount": amount,
             "description": paymentDescription,
             "paidBy": paidBy,
@@ -56,7 +58,7 @@ function PaymentForm() {
             if (!response.ok) {
                 throw new Error('Failed to submit payment record');
             }
-            
+
             // Optionally, clear the form after submission
             setAmount("");
             setPaymentDescription("");
@@ -70,70 +72,76 @@ function PaymentForm() {
             console.error('Error submitting payment:', error);
         }
 
-        
+
     };
 
     const navigate = useNavigate(); // Declare useNavigate in this component
     return (
-        <form onSubmit={(e)=>{handleSubmit(e,navigate);}}>
-            <label>Amount ({'\u20b9'})</label>
-            <input
-                type='number'
-                name='amount'
-                placeholder='0'
-                value={amount}
-                onChange={(e) => setAmount(e.target.value)}
-                required
-            />
+        <div>
+            <Navbar />
+            <div className='add-payment-container'>
+                <form onSubmit={(e) => { handleSubmit(e, navigate); }}>
+                    <label>Amount ({'\u20b9'})</label>
+                    <input
+                        type='number'
+                        name='amount'
+                        placeholder='0'
+                        value={amount}
+                        onChange={(e) => setAmount(e.target.value)}
+                        required
+                    />
 
-            <label>Payment Description</label>
-            <input
-                type='text'
-                name='paymentDescription'
-                placeholder='Description about the payment.'
-                value={paymentDescription}
-                onChange={(e) => setPaymentDescription(e.target.value)}
-                required
-            />
+                    <label>Payment Description</label>
+                    <input
+                        type='text'
+                        name='paymentDescription'
+                        placeholder='Description about the payment.'
+                        value={paymentDescription}
+                        onChange={(e) => setPaymentDescription(e.target.value)}
+                        required
+                    />
 
-            <label>Paid By</label>
-            <select
-                name="paidBy"
-                value={paidBy}
-                onChange={handlePaidByChange}
-                placeholder="Select who paid"
-                required
-            >
-                <option value="" disabled>
-                    -- Select who paid --
-                </option>
-                {participants.map((participant, index) => (
-                    <option key={index} value={participant}>
-                        {participant}
-                    </option>
-                ))}
-            </select>
+                    <label>Paid By</label>
+                    <select
+                        name="paidBy"
+                        value={paidBy}
+                        onChange={handlePaidByChange}
+                        placeholder="Select who paid"
+                        required
+                    >
+                        <option value="" disabled>
+                            -- Select who paid --
+                        </option>
+                        {participants.map((participant, index) => (
+                            <option key={index} value={participant}>
+                                {participant}
+                            </option>
+                        ))}
+                    </select>
 
-            <label>Paid For</label>
-            <div>
-                {participants.map((participant, index) => (
-                    <div key={index}>
-                        <input
-                            type="checkbox"
-                            id={`paidFor-${index}`}
-                            value={participant}
-                            checked={paidFor.includes(participant)}
-                            onChange={handlePaidForChange}
-                        />
-                        <label htmlFor={`paidFor-${index}`}>{participant}</label>
+                    <label>Paid For</label>
+                    <div>
+                        {participants.map((participant, index) => (
+                            <div key={index}>
+                                <input
+                                    type="checkbox"
+                                    id={`paidFor-${index}`}
+                                    value={participant}
+                                    checked={paidFor.includes(participant)}
+                                    onChange={handlePaidForChange}
+                                />
+                                <label htmlFor={`paidFor-${index}`}>{participant}</label>
+                            </div>
+                        ))}
                     </div>
-                ))}
+
+                    <button className='add-pay-submit-btn' type="">Submit</button>
+
+                    {error && <p style={{ color: 'red' }}>{error}</p>}
+                </form>
+                <img className="payment-img" src={PaymentImg}></img>
             </div>
-
-            <button type="submit">Submit</button>
-
-            {error && <p style={{color: 'red'}}>{error}</p>}
-        </form>
+        </div>
     );
 }
 

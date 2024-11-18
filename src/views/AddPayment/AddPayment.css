@@ -6,14 +6,20 @@ body {
   padding: 20px;
 }
 
+.add-payment-container {
+  display: flex;
+  margin-top: 50px;
+}
+
 /* Form styles */
 form {
   display: grid;
-  grid-template-columns: 1fr 2fr; /* Adjust column widths as needed */
+  grid-template-columns: 1fr 2fr;
+  /* Adjust column widths as needed */
   gap: 1rem;
   max-width: 500px;
   margin: 0 auto;
-  padding: 30px;
+  padding: 20px;
   border: 1px solid #ddd;
   border-radius: 10px;
   background-color: #fff;
@@ -30,7 +36,7 @@ input[type="text"],
 input[type="number"],
 select {
   grid-column: 2;
-  width: 100%;
+  width: 90%;
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
@@ -41,21 +47,23 @@ input[type="checkbox"] {
   margin-right: 5px;
 }
 
-/* button[type="submit"] {
-  background-color: #4caf50;
+.add-pay-submit-btn {
+  background-color: #2d6a4f;
   color: white;
   border: none;
-  border-radius: 5px;
-  padding: 12px 20px;
+  border-radius: 8px;
+  padding: 10p;
+  font-size: 1rem;
+  font-weight: bold;
   cursor: pointer;
-  transition: background-color 0.3s;
-  font-size: 14px;
-  grid-column: 1 / span 2; 
+
+  transition: background-color 0.3s, transform 0.3s;
 }
 
-button[type="submit"]:hover {
-  background-color: #388e3c;
-} */
+.add-pay-submit-btn:hover {
+  background-color: #1b4332;
+  transform: scale(1.05);
+}
 
 .error {
   color: red;
@@ -63,27 +71,36 @@ button[type="submit"]:hover {
   margin-top: 5px;
 }
 
+.payment-img {
+  height: 430px;
+  margin: 10px auto;
+}
+
 /* Responsive layout options */
 
 @media (max-width: 768px) {
+
   /* For smaller screens */
   form {
-      grid-template-columns: 1fr; /* Single column for smaller screens */
+    grid-template-columns: 1fr;
+    /* Single column for smaller screens */
   }
 }
 
 @media (min-width: 992px) {
+
   /* For larger screens */
   form {
-      flex-direction: row;
-      gap: 2rem;
+    flex-direction: row;
+    gap: 2rem;
   }
 
   label {
-      flex: 0 0 auto;
+    flex: 0 0 auto;
   }
 
-  input, select {
-      flex: 1 0 auto;
+  input,
+  select {
+    flex: 1 0 auto;
   }
 }
