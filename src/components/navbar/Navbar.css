@@ -11,7 +11,6 @@
     top: 0;
     z-index: 10;
 }
-
 /* Navbar brand (logo/title) */
 .navbar-brand h1 {
     color: #2d6a4f; /* Dark green for brand, representing trust and stability */
@@ -19,6 +18,7 @@
     font-weight: bold;
     font-family: 'Trebuchet MS', sans-serif;
     margin: 0;
+    text-decoration: none !important;
 }
 
 /* Links container */

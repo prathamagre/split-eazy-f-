@@ -5,7 +5,7 @@ const SplitEasyNavbar = () => {
     return (
         <nav className="navbar">
             <div className="navbar-brand">
-                <h1>Split Easy</h1>
+            <a href='/'><h1>Split Easy</h1></a>
             </div>
             <ul className="navbar-links">
                 <li><a href="/">Home</a></li>
