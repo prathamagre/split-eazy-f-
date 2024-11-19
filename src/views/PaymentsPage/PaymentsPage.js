@@ -93,19 +93,26 @@ const ListPage = ({ data, setData, setError }) => { // Accept setError here
 
     return (
         <div>
-            <h1>{JSON.parse(localStorage.getItem("paymentPageData")).name}</h1>
-            <p>{JSON.parse(localStorage.getItem("paymentPageData")).participants.join(', ')}</p>
-            <hr />
-            <div className="card-container">
+            <div className='payment-heading-container'>
+                <h1>{JSON.parse(localStorage.getItem("paymentPageData")).name}</h1>
+                <div className='payment-heading-names'>
+                    {JSON.parse(localStorage.getItem("paymentPageData")).participants.map((participant, index) => (
+                        <span key={index} className="participant-badge"> {participant}</span>
+                    ))}
+                </div>
+            </div>
+
+            <hr className='hr1' />
+            <div className="payment-card-container">
                 {data.payments.map(payment => (
-                    <div key={payment.paymentID} className="card">
-                        <h2> {'\u20b9'} {payment.amount}</h2>
+                    <div key={payment.paymentID} className="payment-card">
+                        <h2 className='pay-amount'> {'\u20b9'} {payment.amount}</h2>
                         <p>{payment.description}</p>
-                        <hr/>
+                        <hr />
                         <p><strong>Paid By:</strong> {payment.paidBy}</p>
                         <p><strong>Paid For:</strong> {payment.paidFor.join(', ')}</p>
-                        <p><strong>Date of Payment:</strong> {payment.dateOfPayment}</p>
-                        <button onClick={() => DeletePayment(payment.paymentID, navigate, setData, setError)} className="delete-btn">
+                        <p className='payment-date'> {payment.dateOfPayment}</p>
+                        <button onClick={() => DeletePayment(payment.paymentID, navigate, setData, setError)} className="del-btn">
                             Delete
                         </button>
                     </div>
