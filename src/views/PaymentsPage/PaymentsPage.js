@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import "./../PaymentsPage/PaymentsPage.css";
-import Navbar from "./../../components/navbar/Navbar"
+import NodataImg from "./../../assests/no-data.png";
+import BackImg from "./../../assests/back (2).png";
+import { Link } from 'react-router-dom';
+import HomeImg from "./../../assests/home-button.png"
 
 const App = () => {
     const [data, setData] = useState(null); // Store JSON data
@@ -44,14 +47,24 @@ const App = () => {
     if (error) return <h2>Error: {error}</h2>;
     if (!data || !data.payments || data.payments.length === 0) return (
         <div>
-            <h1>{JSON.parse(localStorage.getItem("paymentPageData")).name}</h1>
-            <p>{JSON.parse(localStorage.getItem("paymentPageData")).participants.join(', ')}</p>
+            <div className='payment-heading-container'>
+                <h1>{JSON.parse(localStorage.getItem("paymentPageData")).name}</h1>
+                <div className='payment-heading-names'>
+                    {JSON.parse(localStorage.getItem("paymentPageData")).participants.map((participant, index) => (
+                        <span key={index} className="participant-badge"> {participant}</span>
+                    ))}
+                </div>
+            </div>
             <hr />
-            <h2>No Payment Records.</h2>
+            <h2 className='no-record-txt'>No Payment Records.</h2>
+            <img className='nodata-img' src={NodataImg}></img>
             <div className="buttons-container">
                 <button onClick={() => navigate("/settlement-page")} className="settle-btn">Settlement</button>
                 <button onClick={() => navigate("/add-payment")} className="add-btn">Add Payment</button>
             </div>
+
+             <img onClick={() => navigate("/")} className='home-btn-img' src={HomeImg}></img>           
+            <img onClick={() => navigate("/list-page")} className='back-img' src={BackImg}></img>
         </div>
     );
 
@@ -122,10 +135,14 @@ const ListPage = ({ data, setData, setError }) => { // Accept setError here
                 <button onClick={() => navigate("/settlement-page")} className="settle-btn">Settlement</button>
                 <button onClick={() => navigate("/add-payment")} className="add-btn">Add Payment</button>
             </div>
-
+            
+            <img onClick={() => navigate("/list-page")} className='back-img-1' src={BackImg}></img>
+            <img onClick={() => navigate("/")} className='home-btn-img' src={HomeImg}></img>   
+                    
         </div >
     );
 };
+
 
 export default App;
 

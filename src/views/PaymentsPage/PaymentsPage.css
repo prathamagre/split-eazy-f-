@@ -6,6 +6,15 @@ body {
     color: #333;
 }
 
+.no-record-txt{
+    text-align: center;
+}
+
+.nodata-img{
+    height: 250px;
+    margin: 10px auto;
+    display: block;
+}
 hr {
     border: none;
     border-top: 2px dashed #2d6a4f;
@@ -148,6 +157,40 @@ h1 {
 .settle-btn:hover {
     background-color: #1b4332;
     transform: scale(1.05);
+}
+
+.back-img{
+    cursor: pointer;
+    height: 60px;
+}
+.back-img:hover{
+    box-shadow: 0 0 6px 0;
+    border-radius: 23px;
+}
+
+.home-btn-img{
+    cursor: pointer;
+    height: 60px;
+    position: fixed;
+    bottom: 80px;
+    left: 10px;
+    border-radius: 23px;
+}
+.home-btn-img:hover{
+    box-shadow: 0 0 6px 0;
+    border-radius: 23px;
+}
+
+.back-img-1{
+    cursor: pointer;
+    height: 60px;
+    position: fixed;
+    bottom: 10px;
+    left: 10px;
+}
+.back-img-1:hover{
+    box-shadow: 0 0 6px 0;
+    border-radius: 23px;
 }
 
 @media (max-width: 768px) {
