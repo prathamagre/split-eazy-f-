@@ -47,10 +47,16 @@ const SettlementPage = () => {
 
     return (
         <div>
-            <h1>{JSON.parse(localStorage.getItem("paymentPageData")).name}</h1>
-            <p>{JSON.parse(localStorage.getItem("paymentPageData")).participants.join(', ')}</p>
+            <div className='payment-heading-container'>
+                <h1>{JSON.parse(localStorage.getItem("paymentPageData")).name}</h1>
+                <div className='payment-heading-names'>
+                    {JSON.parse(localStorage.getItem("paymentPageData")).participants.map((participant, index) => (
+                        <span key={index} className="participant-badge"> {participant}</span>
+                    ))}
+                </div>
+            </div>
             <hr/>
-            <h3>Settlement Information</h3>
+            <h3 className='settle-txt'>Settlement Information</h3>
             <div className='settlement-container'>
                 {data.settlement.map((s) => (
                     <div className='card'>
