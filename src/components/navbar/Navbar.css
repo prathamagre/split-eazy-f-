@@ -21,6 +21,10 @@
     margin: 0;
 }
 
+.navbar-brand a {
+    text-decoration: none; 
+}
+
 /* Links container */
 .navbar-links {
     list-style: none;

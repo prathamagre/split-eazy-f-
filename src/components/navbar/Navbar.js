@@ -11,7 +11,7 @@ const SplitEasyNavbar = () => {
     return (
         <nav className="navbar">
             <div className="navbar-brand">
-                <a href="/"><h1>Split Easy</h1></a>
+                <a href="/"><h1>SplitEasy</h1></a>
             </div>
 
             <button
