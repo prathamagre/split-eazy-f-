@@ -262,4 +262,8 @@ h1 {
         font-size: 0.8rem;
         padding: 8px 12px;
     }
+
+    .home-btn-im{
+        bottom: 60px;
+    }
 }
