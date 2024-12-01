@@ -104,3 +104,14 @@ input[type="checkbox"] {
     flex: 1 0 auto;
   }
 }
+
+@media screen and (min-width: 601px) and (max-width: 768px){
+  .payment-img{
+    display: none;
+  }
+}
+@media screen and (max-width:600px) {
+  .payment-img{
+    display: none;
+  }
+}

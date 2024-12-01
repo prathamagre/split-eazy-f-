@@ -49,10 +49,11 @@ h1 {
 }
 
 .participant-badge {
-    background-color: #2d6a4f;
-    color: #fff;
+    /* background-color: #2d6a4f; */
+    color: #2d6a4f;
+    border: #2d6a4f solid;
     padding: 8px 16px;
-    border-radius: 25px;
+    border-radius: 10px;
     font-size: 0.95rem;
     font-weight: 500;
     box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
