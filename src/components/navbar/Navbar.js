@@ -23,8 +23,14 @@ const SplitEasyNavbar = () => {
                 <span></span>
             </button>
 
-            {/* Drawer */}
-            <div className={`drawer ${isDrawerOpen ? "active" : ""}`}>
+            <ul className={`navbar-links ${isDrawerOpen ? "active" : ""}`}>
+                <li><a href="/">Home</a></li>
+                <li><a href="add-list">Add List</a></li>
+                <li><a href="list-page">Listings</a></li>
+            </ul>
+
+             {/* Drawer */}
+             <div className={`drawer ${isDrawerOpen ? "active" : ""}`}>
                 <a href="/">Home</a>
                 <a href="add-list">Add List</a>
                 <a href="list-page">Listings</a>

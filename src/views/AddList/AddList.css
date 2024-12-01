@@ -155,3 +155,21 @@ body {
       padding: 10px 15px;
   }
 }
+
+@media screen and (min-width: 601px) and (max-width: 768px){
+  .add-list-img{
+   display: none;
+  }
+  .addlist-content-container{
+    margin-top: 10px;
+   }
+}
+
+@media screen and (max-width:600px) {
+  .add-list-img{
+    display: none;
+   }
+   .addlist-content-container{
+    margin-top: 10px;
+   }
+}

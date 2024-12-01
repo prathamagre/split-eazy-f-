@@ -29,6 +29,22 @@
     font-family: 'Roboto', sans-serif;
 }
 
+/* Links in the navbar */
+.navbar-links li a {
+    color: #4a4a4a;
+    text-decoration: none;
+    font-size: 1em;
+    font-weight: bold;
+    padding: 8px 12px;
+    transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+.navbar-links li a:hover {
+    color: #40916c;
+    border-bottom: 3px solid #40916c;
+    border-radius: 0;
+}
+
 /* Toggler Button */
 .menu-toggle {
     display: none;
@@ -68,10 +84,10 @@
     position: fixed;
     top: 0;
     left: -100%; /* Hidden initially */
-    width: 75%; /* Drawer width */
+    width: 75%;
     height: 100%;
-    background: rgba(255, 255, 255, 0.8); /* Frosted glass effect */
-    backdrop-filter: blur(10px); /* Blur effect */
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
     box-shadow: 4px 0 12px rgba(0, 0, 0, 0.2);
     display: flex;
     flex-direction: column;
@@ -83,10 +99,10 @@
 }
 
 .drawer.active {
-    left: 0; /* Slide in */
+    left: 0;
 }
 
-/* Drawer link styles */
+/* Drawer links */
 .drawer a {
     color: #2d6a4f;
     font-size: 1.5em;
@@ -99,14 +115,14 @@
     color: #40916c;
 }
 
-/* Overlay background when drawer is active */
+/* Overlay */
 .drawer-overlay {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.5); /* Dimmed background */
+    background-color: rgba(0, 0, 0, 0.5);
     z-index: 9;
     opacity: 0;
     pointer-events: none;
@@ -118,7 +134,7 @@
     pointer-events: auto;
 }
 
-/* Responsive toggler styles */
+/* Responsive navbar adjustments */
 @media (max-width: 768px) {
     .menu-toggle {
         display: block;
@@ -126,5 +142,19 @@
 
     .navbar-links {
         display: none;
+    }
+
+    .drawer {
+        display: flex;
+    }
+}
+
+@media (min-width: 769px) {
+    .navbar-links {
+        display: flex; /* Ensure links are visible on larger screens */
+    }
+
+    .menu-toggle {
+        display: none; /* Hide toggle button on larger screens */
     }
 }
