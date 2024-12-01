@@ -28,27 +28,21 @@ body {
 
 .card-container {
     display: flex; 
-    flex-direction: column; 
-    gap: 10px; 
-    margin: 20px auto;
-    padding: 10px; 
-    border: 3px solid #274d3d;
-    background: #f5f5f5;
+    flex-wrap: wrap; 
+    align-items: center; 
+    justify-content: center; 
+    gap: 15px; 
+    margin: 20px auto; 
+    padding: 15px; 
     max-width: 600px; 
     height: 400px; 
     overflow-y: auto; 
     overflow-x: hidden; 
-    border-radius: 10px; 
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
-    flex-wrap: nowrap;
-    display: flex;                  /* Use flexbox for layout */
-    flex-direction: column;         /* Stack items vertically */
-    align-items: center;            /* Center items horizontally */
-    margin: 20px;                  /* Add some margin around the container */
-    width:100%;
+    background-color: #f9f9f9; 
+    border: 2px solid #2d6a4f; 
+    border-radius: 12px; 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); 
 }
-
-
 .card-container::-webkit-scrollbar {
     width: 8px; 
 }
@@ -179,4 +173,16 @@ body {
     transform: translateY(-3px);
     background-color: #40916c;
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+@media screen and (min-width: 601px) and (max-width: 768px){
+    .listing-img{
+        display: none;
+    }
+}
+
+@media screen and (max-width:600px) {
+    .listing-img{
+        display: none;
+    }
 }

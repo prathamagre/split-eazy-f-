@@ -63,7 +63,7 @@ const App = () => {
                 <button onClick={() => navigate("/add-payment")} className="add-btn">Add Payment</button>
             </div>
 
-             <img onClick={() => navigate("/")} className='home-btn-img' src={HomeImg}></img>           
+             <img onClick={() => navigate("/")} className='home-btn-im' src={HomeImg}></img>           
             <img onClick={() => navigate("/list-page")} className='back-img' src={BackImg}></img>
         </div>
     );

@@ -118,3 +118,18 @@
 .feature-img{
   height: 150px;
 }
+
+@media screen and (min-width: 601px) and (max-width: 768px){
+  .home-img{
+   display: none;
+  }
+}
+
+@media screen and (max-width:600px) {
+  .home-img{
+    display: none;
+   }
+   .top-cont-txt{
+    font-size: 35px;
+  }
+}
