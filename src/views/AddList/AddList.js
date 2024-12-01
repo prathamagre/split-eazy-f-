@@ -6,6 +6,7 @@ import Navbar from "./../../components/navbar/Navbar"
 import AddListImg from "./../../assests/add-list img.png"
 
 function Add() {
+    const serverURL = "https://grassx03.pythonanywhere.com";
     const [category, setCategory] = useState("");
     const [description, setDescription] = useState("");
     const [participants, setParticipants] = useState([""]); // Initialize with one participant input
@@ -16,7 +17,7 @@ function Add() {
         e.preventDefault(); // Prevent form default submission behavior
 
         try {
-            const response = await fetch("http://127.0.0.1:5000/listing/createListing", {
+            const response = await fetch(`${serverURL}/listing/createListing`, {
                 method: "POST", // POST request to send data
                 headers: {
                     "Content-Type": "application/json", // Indicate that the request body is JSON

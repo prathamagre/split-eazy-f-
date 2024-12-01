@@ -5,6 +5,8 @@ import NodataImg from "./../../assests/no-data.png";
 import BackImg from "./../../assests/back (2).png";
 import HomeImg from "./../../assests/home-button.png"
 
+const serverURL = "https://grassx03.pythonanywhere.com";
+
 const App = () => {
     const [data, setData] = useState(null); // Store JSON data
     const [loading, setLoading] = useState(true); // Track loading state
@@ -15,7 +17,7 @@ const App = () => {
 
         const fetchData = async () => {
             try {
-                const response = await fetch("http://127.0.0.1:5000/payment/getAllRecords", {
+                const response = await fetch(`${serverURL}/payment/getAllRecords`, {
                     method: "POST", // POST request to send data
                     headers: {
                         "Content-Type": "application/json", // Indicate that the request body is JSON
@@ -74,7 +76,7 @@ const DeletePayment = async (paymentID, navigate, setData, setError) => {
     const listingID = JSON.parse(localStorage.getItem("paymentPageData")).listingID;
 
     try {
-        const response = await fetch("http://127.0.0.1:5000/payment/deleteRecord", {
+        const response = await fetch(`${serverURL}/payment/deleteRecord`, {
             method: "POST", // POST request to send data
             headers: {
                 "Content-Type": "application/json", // Indicate that the request body is JSON

@@ -4,6 +4,8 @@ import { useNavigate } from 'react-router-dom';
 import BackImg from "./../../assests/back (2).png";
 import HomeImg from "./../../assests/home-button.png"
 
+const serverURL = "https://grassx03.pythonanywhere.com";
+
 const SettlementPage = () => {
     const [data, setData] = useState(null); // To store the fetched data
     const [loading, setLoading] = useState(true); // To manage loading state
@@ -19,7 +21,7 @@ const SettlementPage = () => {
 
         const fetchSettlementData = async () => {
             try {
-                const response = await fetch("http://127.0.0.1:5000/payment/settlement", {
+                const response = await fetch(`${serverURL}/payment/settlement`, {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json", // Indicate we're sending JSON
