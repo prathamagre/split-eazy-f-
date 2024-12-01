@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import SettlementPageCss from "./../SettlementPage/SettlementPage.css"
+import "./../SettlementPage/SettlementPage.css"
+import { useNavigate } from 'react-router-dom';
+import BackImg from "./../../assests/back (2).png";
+import HomeImg from "./../../assests/home-button.png"
 
 const SettlementPage = () => {
     const [data, setData] = useState(null); // To store the fetched data
@@ -40,6 +43,8 @@ const SettlementPage = () => {
         fetchSettlementData(); // Call the function to fetch data
     }, []); // Run only once when the component mounts
 
+    const navigate = useNavigate();
+
     // Conditional Rendering
     if (loading) return <h2>Loading...</h2>;
     if (error) return <h2 style={{ color: 'red' }}>Error: {error}</h2>; // Display error message
@@ -64,7 +69,8 @@ const SettlementPage = () => {
                     </div>
                 ))}
             </div>
-            {/* Optionally, you can render the data in a more user-friendly way */}
+            <img onClick={() => navigate("/")} className='home-btn-im' src={HomeImg}></img>           
+            <img onClick={() => navigate("/list-page")} className='back-img' src={BackImg}></img>
         </div>
     );
 };

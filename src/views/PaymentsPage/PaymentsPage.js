@@ -3,7 +3,6 @@ import { useNavigate } from 'react-router-dom';
 import "./../PaymentsPage/PaymentsPage.css";
 import NodataImg from "./../../assests/no-data.png";
 import BackImg from "./../../assests/back (2).png";
-import { Link } from 'react-router-dom';
 import HomeImg from "./../../assests/home-button.png"
 
 const App = () => {
