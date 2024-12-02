@@ -62,7 +62,7 @@ const NavigatePayment = (listingID, description, category, participants, navigat
     navigate("/payments-page"); // Trigger navigation after storing the data
 }
 
-const DeleteListing = async (listingID, navigate) => {
+const DeleteListing = async (listingID, navigate, setData) => {
     try {
         const response = await fetch(`${serverURL}/listing/deleteListing`, {
             method: "POST", // POST request to send data
@@ -76,35 +76,81 @@ const DeleteListing = async (listingID, navigate) => {
             throw new Error('Failed to fetch data');
         }
 
+        setData((prevData) => ({
+            ...prevData,
+            listings: prevData.listings.filter((listing) => listing.listingID !== listingID),
+        }));
+
         navigate("/list-page"); // Trigger navigation after the deletion
         // Refresh the page after successful deletion
-        window.location.reload();
+        // window.location.reload();
 
     } catch (error) {
         console.error(error.message); // Log the error to the console for debugging
     }
 }
 
+// const ListPage = ({ data }) => {
+//     const navigate = useNavigate(); // Declare useNavigate in this component
+
+//     return (
+//         <div>
+//             <Navbar />
+//             <h2 className='page-heading'>Listings (Groups of Payments)</h2>
+//             <div className='list-page-container'>
+//                 <img className="listing-img" src={ListingImg}></img>
+//                 <div className="card-container">
+//                     {data.listings.map(listing => (
+//                         <div key={listing.listingID} className="card">
+//                             <h2>{listing.name}</h2>
+//                             <p>{listing.description}</p>
+//                             <p><strong>Participants:</strong> {listing.participants.join(', ')}</p>
+//                             <div className='date'>{listing.dateOfCreation}</div>
+//                             <button className='add-participant-btn' onClick={() => NavigatePayment(listing.listingID, listing.description, listing.name, listing.participants, navigate)}>
+//                                 Open
+//                             </button>
+//                             <button onClick={() => DeleteListing(listing.listingID, navigate,) } className="delete-btn">
+//                                 Delete
+//                             </button>
+//                         </div>
+//                     ))}
+//                 </div>
+//             </div>
+
+//             <button
+//                 onClick={() => navigate("/add-list")}
+//                 className="add-list-btn">Add Listing</button>
+//         </div>
+//     );
+// };
+
 const ListPage = ({ data }) => {
-    const navigate = useNavigate(); // Declare useNavigate in this component
+    const navigate = useNavigate(); // Declare useNavigate
+    const [localData, setLocalData] = useState(data); // Local state to handle updates
 
     return (
         <div>
             <Navbar />
             <h2 className='page-heading'>Listings (Groups of Payments)</h2>
             <div className='list-page-container'>
-                <img className="listing-img" src={ListingImg}></img>
+                <img className="listing-img" src={ListingImg} alt="Listing illustration"></img>
                 <div className="card-container">
-                    {data.listings.map(listing => (
+                    {localData.listings.map((listing) => (
                         <div key={listing.listingID} className="card">
                             <h2>{listing.name}</h2>
                             <p>{listing.description}</p>
                             <p><strong>Participants:</strong> {listing.participants.join(', ')}</p>
                             <div className='date'>{listing.dateOfCreation}</div>
-                            <button className='add-participant-btn' onClick={() => NavigatePayment(listing.listingID, listing.description, listing.name, listing.participants, navigate)}>
+                            <button
+                                className='add-participant-btn'
+                                onClick={() => NavigatePayment(listing.listingID, listing.description, listing.name, listing.participants, navigate)}
+                            >
                                 Open
                             </button>
-                            <button onClick={() => DeleteListing(listing.listingID, navigate) } className="delete-btn">
+                            <button
+                                onClick={() => DeleteListing(listing.listingID, navigate, setLocalData)}
+                                className="delete-btn"
+                            >
                                 Delete
                             </button>
                         </div>
@@ -114,9 +160,13 @@ const ListPage = ({ data }) => {
 
             <button
                 onClick={() => navigate("/add-list")}
-                className="add-list-btn">Add Listing</button>
+                className="add-list-btn"
+            >
+                Add Listing
+            </button>
         </div>
     );
 };
+
 
 export default App;
