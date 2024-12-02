@@ -107,7 +107,7 @@
 }
 
 /* Drawer links */
-.drawer a {
+.drawer li {
     color: #2d6a4f;
     font-size: 1.5em;
     font-weight: bold;
