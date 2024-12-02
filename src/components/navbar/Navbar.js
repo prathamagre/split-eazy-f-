@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import "./../navbar/Navbar.css";
+import { useNavigate } from 'react-router-dom';
 
 const SplitEasyNavbar = () => {
     const [isDrawerOpen, setIsDrawerOpen] = useState(false);
-
+    const navigate = useNavigate();
     const toggleDrawer = () => {
         setIsDrawerOpen(!isDrawerOpen);
     };
@@ -24,16 +25,16 @@ const SplitEasyNavbar = () => {
             </button>
 
             <ul className={`navbar-links ${isDrawerOpen ? "active" : ""}`}>
-                <li><a href="/">Home</a></li>
-                <li><a href="add-list">Add List</a></li>
-                <li><a href="list-page">Listings</a></li>
+                <li onClick={() => navigate("/")}>Home</li>
+                <li onClick={() => navigate("/add-list")}>Add List</li>
+                <li onClick={() => navigate("/list-page")}>Listings</li>
             </ul>
 
              {/* Drawer */}
              <div className={`drawer ${isDrawerOpen ? "active" : ""}`}>
-                <a href="/">Home</a>
-                <a href="add-list">Add List</a>
-                <a href="list-page">Listings</a>
+                <a onClick={() => navigate("/list-page")}>Home</a>
+                <a onClick={() => navigate("/list-page")} href="add-list">Add List</a>
+                <a onClick={() => navigate("/list-page")}href="list-page">Listings</a>
             </div>
 
             {/* Overlay */}
