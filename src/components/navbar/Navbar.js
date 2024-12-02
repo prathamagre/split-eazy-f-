@@ -32,8 +32,8 @@ const SplitEasyNavbar = () => {
 
              {/* Drawer */}
              <div className={`drawer ${isDrawerOpen ? "active" : ""}`}>
-                <a onClick={() => navigate("/list-page")}>Home</a>
-                <a onClick={() => navigate("/list-page")} href="add-list">Add List</a>
+                <a onClick={() => navigate("/")}>Home</a>
+                <a onClick={() => navigate("/add-list")} href="add-list">Add List</a>
                 <a onClick={() => navigate("/list-page")}href="list-page">Listings</a>
             </div>
 
