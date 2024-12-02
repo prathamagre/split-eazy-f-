@@ -94,7 +94,7 @@ const DeletePayment = async (paymentID, navigate, setData, setError) => {
             payments: prevData.payments.filter(payment => payment.paymentID !== paymentID)
         }));
 
-        navigate("/payments-page"); // Trigger navigation after the deletion
+        //navigate("/payments-page"); // Trigger navigation after the deletion
 
     } catch (error) {
         console.error(error.message); // Log the error to the console for debugging

@@ -81,7 +81,7 @@ const DeleteListing = async (listingID, navigate, setData) => {
             listings: prevData.listings.filter((listing) => listing.listingID !== listingID),
         }));
 
-        navigate("/list-page"); // Trigger navigation after the deletion
+        //navigate("/list-page"); // Trigger navigation after the deletion
         // Refresh the page after successful deletion
         // window.location.reload();
 
