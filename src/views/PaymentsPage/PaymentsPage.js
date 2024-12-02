@@ -44,7 +44,7 @@ const App = () => {
 
     const navigate = useNavigate();
     // Conditional Rendering
-    if (loading) return <h2>Loading...</h2>;
+    if (loading) return <div class="loader"></div>;
     if (error) return <h2>Error: {error}</h2>;
     if (!data || !data.payments || data.payments.length === 0) return (
         <div>

@@ -35,7 +35,7 @@ const App = () => {
 
     const navigate = useNavigate(); // Declare useNavigate in this component
     // Conditional Rendering
-    if (loading) return <h2>Loading...</h2>;
+    if (loading) return <div class="loader"></div>;
     if (error) return <h2>Error: {error}</h2>;
     if (!data || !data.listings || data.listings.length === 0) return (
         <div>
