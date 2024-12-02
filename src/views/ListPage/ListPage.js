@@ -4,6 +4,8 @@ import "./../ListPage/ListPage.css";
 import Navbar from "./../../components/navbar/Navbar";
 import ListingImg from "./../../assests/listing.png"
 
+const serverURL = "https://grassx03.pythonanywhere.com";
+
 const App = () => {
     const [data, setData] = useState(null); // Store JSON data
     const [loading, setLoading] = useState(true); // Track loading state
@@ -12,7 +14,7 @@ const App = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await fetch("http://127.0.0.1:5000/listing/getAllListings");
+                const response = await fetch(`${serverURL}/listing/getAllListings`);
 
                 if (!response.ok) {
                     throw new Error('Failed to fetch data');
@@ -62,7 +64,7 @@ const NavigatePayment = (listingID, description, category, participants, navigat
 
 const DeleteListing = async (listingID, navigate) => {
     try {
-        const response = await fetch("http://127.0.0.1:5000/listing/deleteListing", {
+        const response = await fetch(`${serverURL}/listing/deleteListing`, {
             method: "POST", // POST request to send data
             headers: {
                 "Content-Type": "application/json", // Indicate that the request body is JSON

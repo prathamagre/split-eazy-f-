@@ -4,6 +4,8 @@ import './../AddPayment/AddPayment.css';
 import Navbar from "./../../components/navbar/Navbar";
 import PaymentImg from "./../../assests/add-payment-img.png";
 
+const serverURL = "https://grassx03.pythonanywhere.com";
+
 function PaymentForm() {
     const [participants, setParticipants] = useState(JSON.parse(localStorage.getItem("paymentPageData")).participants); // Example participants
     const [paidBy, setPaidBy] = useState("");
@@ -47,7 +49,7 @@ function PaymentForm() {
         };
 
         try {
-            const response = await fetch("http://127.0.0.1:5000/payment/addRecord", {
+            const response = await fetch(`${serverURL}/payment/addRecord`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json", // Sending JSON data
