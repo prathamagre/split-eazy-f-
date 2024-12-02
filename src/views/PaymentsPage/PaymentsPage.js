@@ -69,12 +69,13 @@ const App = () => {
         </div>
     );
 
-    return <ListPage data={data} setData={setData} setError={setError} />; // Pass setError to ListPage
+    return <ListPage data={data} setData={setData} setError={setError} setLoading={setLoading}/>; // Pass setError to ListPage
 }
 
-const DeletePayment = async (paymentID, navigate, setData, setError) => {
+const DeletePayment = async (paymentID, navigate, setData, setError, setLoading) => {
     const listingID = JSON.parse(localStorage.getItem("paymentPageData")).listingID;
 
+    setLoading(true);
     try {
         const response = await fetch(`${serverURL}/payment/deleteRecord`, {
             method: "POST", // POST request to send data
@@ -100,9 +101,10 @@ const DeletePayment = async (paymentID, navigate, setData, setError) => {
         console.error(error.message); // Log the error to the console for debugging
         setError(error.message); // Set the error state to display the error message
     }
+    setLoading(false);
 }
 
-const ListPage = ({ data, setData, setError }) => { // Accept setError here
+const ListPage = ({ data, setData, setError, setLoading }) => { // Accept setError here
     const navigate = useNavigate(); // Declare useNavigate in this component
 
     return (
@@ -126,7 +128,7 @@ const ListPage = ({ data, setData, setError }) => { // Accept setError here
                         <p><strong>Paid By:</strong> {payment.paidBy}</p>
                         <p><strong>Paid For:</strong> {payment.paidFor.join(', ')}</p>
                         <p className='payment-date'> {payment.dateOfPayment}</p>
-                        <button onClick={() => DeletePayment(payment.paymentID, navigate, setData, setError)} className="del-btn">
+                        <button onClick={() => DeletePayment(payment.paymentID, navigate, setData, setError, setLoading)} className="del-btn">
                             Delete
                         </button>
                     </div>
