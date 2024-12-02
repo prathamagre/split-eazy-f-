@@ -66,13 +66,13 @@ const SettlementPage = () => {
             <h3 className='settle-txt'>Settlement Information</h3>
             <div className='settlement-container'>
                 {data.settlement.map((s) => (
-                    <div className='card'>
+                    <div className='card c'>
                         <p>{s[0]} pays {s[1]} {'\u20b9'}{Math.floor(s[2])}.</p>
                     </div>
                 ))}
             </div>
             <img onClick={() => navigate("/")} className='home-btn-im' src={HomeImg}></img>           
-            <img onClick={() => navigate("/payments-page")} className='back-img' src={BackImg}></img>
+            <img onClick={() => navigate("/payments-page")} className='back-img bck' src={BackImg}></img>
         </div>
     );
 };

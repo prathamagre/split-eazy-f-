@@ -12,13 +12,15 @@
     border: 1px solid #dee2e6;     /* Border to separate cards */
     border-radius: 8px;            /* Rounded corners */
     padding: 15px;                 /* Padding inside the card */
-    margin: 10px 0;                /* Margin between cards */
+    margin: 10px auto;                /* Margin between cards */
     width: 100%;                   /* Make cards full width */
     max-width: 400px;              /* Set a max width for cards */
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
     transition: transform 0.2s;    /* Smooth transition for hover effect */
 }
-
+.c{
+    text-align: center;
+}
 .card:hover {
     transform: translateY(-2px);   /* Slight lift effect on hover */
 }
@@ -27,4 +29,9 @@
     text-align: center;
     font-size: 25px;
     color: #1b4332;
+}
+
+.bck{
+    position: fixed;
+    bottom: 130px;
 }
