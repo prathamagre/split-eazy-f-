@@ -76,7 +76,7 @@ const DeleteListing = async (listingID, navigate) => {
             throw new Error('Failed to fetch data');
         }
 
-        //navigate("/list-page"); // Trigger navigation after the deletion
+        navigate("/list-page"); // Trigger navigation after the deletion
         // Refresh the page after successful deletion
         window.location.reload();
 
@@ -104,7 +104,7 @@ const ListPage = ({ data }) => {
                             <button className='add-participant-btn' onClick={() => NavigatePayment(listing.listingID, listing.description, listing.name, listing.participants, navigate)}>
                                 Open
                             </button>
-                            <button onClick={() => DeleteListing(listing.listingID, navigate)} className="delete-btn">
+                            <button onClick={() => DeleteListing(listing.listingID, navigate) } className="delete-btn">
                                 Delete
                             </button>
                         </div>
