@@ -72,7 +72,7 @@ const SettlementPage = () => {
                 ))}
             </div>
             <img onClick={() => navigate("/")} className='home-btn-im' src={HomeImg}></img>           
-            <img onClick={() => navigate("/list-page")} className='back-img' src={BackImg}></img>
+            <img onClick={() => navigate("/payments-page")} className='back-img' src={BackImg}></img>
         </div>
     );
 };
