@@ -90,40 +90,6 @@ const DeleteListing = async (listingID, navigate, setData) => {
     }
 }
 
-// const ListPage = ({ data }) => {
-//     const navigate = useNavigate(); // Declare useNavigate in this component
-
-//     return (
-//         <div>
-//             <Navbar />
-//             <h2 className='page-heading'>Listings (Groups of Payments)</h2>
-//             <div className='list-page-container'>
-//                 <img className="listing-img" src={ListingImg}></img>
-//                 <div className="card-container">
-//                     {data.listings.map(listing => (
-//                         <div key={listing.listingID} className="card">
-//                             <h2>{listing.name}</h2>
-//                             <p>{listing.description}</p>
-//                             <p><strong>Participants:</strong> {listing.participants.join(', ')}</p>
-//                             <div className='date'>{listing.dateOfCreation}</div>
-//                             <button className='add-participant-btn' onClick={() => NavigatePayment(listing.listingID, listing.description, listing.name, listing.participants, navigate)}>
-//                                 Open
-//                             </button>
-//                             <button onClick={() => DeleteListing(listing.listingID, navigate,) } className="delete-btn">
-//                                 Delete
-//                             </button>
-//                         </div>
-//                     ))}
-//                 </div>
-//             </div>
-
-//             <button
-//                 onClick={() => navigate("/add-list")}
-//                 className="add-list-btn">Add Listing</button>
-//         </div>
-//     );
-// };
-
 const ListPage = ({ data }) => {
     const navigate = useNavigate(); // Declare useNavigate
     const [localData, setLocalData] = useState(data); // Local state to handle updates
