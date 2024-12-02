@@ -34,19 +34,21 @@
 }
 
 /* Links in the navbar */
-.navbar-links li a {
+.navbar-links li{
     color: #4a4a4a;
     text-decoration: none;
     font-size: 1em;
     font-weight: bold;
     padding: 8px 12px;
     transition: color 0.3s ease, background-color 0.3s ease;
+    cursor: pointer;
 }
 
-.navbar-links li a:hover {
+.navbar-links li:hover {
     color: #40916c;
     border-bottom: 3px solid #40916c;
     border-radius: 0;
+    transition: 0.1s;
 }
 
 /* Toggler Button */
