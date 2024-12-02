@@ -11,7 +11,7 @@
     background-color: #f8f9fa;     /* Light background for cards */
     border: 1px solid #dee2e6;     /* Border to separate cards */
     border-radius: 8px;            /* Rounded corners */
-    padding: 15px;                 /* Padding inside the card */
+    padding: 0px auto;                 /* Padding inside the card */
     margin: 10px auto;                /* Margin between cards */
     width: 100%;                   /* Make cards full width */
     max-width: 400px;              /* Set a max width for cards */
@@ -30,8 +30,12 @@
     font-size: 25px;
     color: #1b4332;
 }
-
-.bck{
-    position: fixed;
-    bottom: 130px;
+@media screen and (max-width:600px) {
+    .bck{
+        position: fixed;
+        bottom: 130px;
+    }
+    .c{
+        width: 210px;
+    }
 }
