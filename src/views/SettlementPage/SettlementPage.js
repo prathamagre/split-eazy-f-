@@ -48,7 +48,7 @@ const SettlementPage = () => {
     const navigate = useNavigate();
 
     // Conditional Rendering
-    if (loading) return <h2>Loading...</h2>;
+    if (loading) return <div class="loader"></div>;
     if (error) return <h2 style={{ color: 'red' }}>Error: {error}</h2>; // Display error message
     if (!data) return <h2>No Settlement Data Found</h2>; // Fallback message if no data is found
 

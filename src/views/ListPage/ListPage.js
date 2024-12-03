@@ -35,7 +35,7 @@ const App = () => {
 
     const navigate = useNavigate(); // Declare useNavigate in this component
     // Conditional Rendering
-    if (loading) return <h2>Loading...</h2>;
+    if (loading) return <div class="loader"></div>;
     if (error) return <h2>Error: {error}</h2>;
     if (!data || !data.listings || data.listings.length === 0) return (
         <div>
@@ -81,7 +81,7 @@ const DeleteListing = async (listingID, navigate, setData) => {
             listings: prevData.listings.filter((listing) => listing.listingID !== listingID),
         }));
 
-        navigate("/list-page"); // Trigger navigation after the deletion
+        //navigate("/list-page"); // Trigger navigation after the deletion
         // Refresh the page after successful deletion
         // window.location.reload();
 

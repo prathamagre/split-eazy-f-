@@ -11,6 +11,8 @@ a simple application where the following purpose is served -
 > Finally, they can see a simple settlement recommendation
 > for the payments.
 
+![Payments Page of the app.](screenshots/paymentspage.png)
+
 ## Details about Frontend
 
 The frontend is a static website written in `Javascript`.
@@ -74,7 +76,7 @@ a dependency (obviously).
 
 ### Serving the backend app
 
-Currently, the backend is designed to be hosted only on localhost.
+Serve the app from the root folder.
 
 To start a production server with `gunicorn` on a linux based os -
 `source startProdServer.sh` on the terminal from root folder.
@@ -92,5 +94,6 @@ while not with 2 or more workers or the flask-development server. Maybe using re
 settlement route causes issue or maybe any timeouts since the settlement route does bit more processing
 compared to the other routes. Whether requests.get is the issue can be easily tested by removing
 the requests and using the actual code of the requested route instead (so there is no requests.get).
+- The use of `requests` in settlement route (/payment/settlement/) can cause it to not work on server. In the case this happens, remove the requests (and replace it with required logic of the requested route) and reload the server. Don't know why use of  `requests` causes this issue.
 
 *Main backend and overall technical-design author - @SmartyGrasshopper*
