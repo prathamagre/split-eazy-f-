@@ -4,7 +4,7 @@ import "./../ListPage/ListPage.css";
 import Navbar from "./../../components/navbar/Navbar";
 import ListingImg from "./../../assests/listing.png"
 
-const serverURL = "https://grassx03.pythonanywhere.com";
+const serverURL = "https://split-eazy.onrender.com";
 
 const App = () => {
     const [data, setData] = useState(null); // Store JSON data

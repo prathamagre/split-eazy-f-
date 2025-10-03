@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import BackImg from "./../../assests/back (2).png";
 import HomeImg from "./../../assests/home-button.png"
 
-const serverURL = "https://grassx03.pythonanywhere.com";
+const serverURL = "https://split-eazy.onrender.com";
 
 const SettlementPage = () => {
     const [data, setData] = useState(null); // To store the fetched data

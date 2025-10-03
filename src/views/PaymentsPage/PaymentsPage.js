@@ -5,7 +5,7 @@ import NodataImg from "./../../assests/no-data.png";
 import BackImg from "./../../assests/back (2).png";
 import HomeImg from "./../../assests/home-button.png"
 
-const serverURL = "https://grassx03.pythonanywhere.com";
+const serverURL = "https://split-eazy.onrender.com";
 
 const App = () => {
     const [data, setData] = useState(null); // Store JSON data
