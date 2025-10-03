@@ -6,7 +6,7 @@ import Navbar from "./../../components/navbar/Navbar"
 import AddListImg from "./../../assests/add-list img.png"
 
 function Add() {
-    const serverURL = "https://grassx03.pythonanywhere.com";
+    const serverURL = "https://split-eazy.onrender.com";
     const [category, setCategory] = useState("");
     const [description, setDescription] = useState("");
     const [participants, setParticipants] = useState([""]); // Initialize with one participant input
