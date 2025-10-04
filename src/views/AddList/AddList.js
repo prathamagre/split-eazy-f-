@@ -17,7 +17,7 @@ function Add() {
         e.preventDefault(); // Prevent form default submission behavior
 
         try {
-            const response = await fetch(`${serverURL}/listing/createListing`, {
+            const response = await fetch(`${serverURL}/listing/create`, {
                 method: "POST", // POST request to send data
                 headers: {
                     "Content-Type": "application/json", // Indicate that the request body is JSON

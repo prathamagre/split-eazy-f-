@@ -14,7 +14,7 @@ const App = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await fetch(`${serverURL}/listing/getAllListings`);
+                const response = await fetch(`${serverURL}/listing/`);
 
                 if (!response.ok) {
                     throw new Error('Failed to fetch data');
@@ -64,7 +64,7 @@ const NavigatePayment = (listingID, description, category, participants, navigat
 
 const DeleteListing = async (listingID, navigate, setData) => {
     try {
-        const response = await fetch(`${serverURL}/listing/deleteListing`, {
+        const response = await fetch(`${serverURL}/listing/delete/:id`, {
             method: "POST", // POST request to send data
             headers: {
                 "Content-Type": "application/json", // Indicate that the request body is JSON
