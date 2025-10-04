@@ -37,7 +37,7 @@ const App = () => {
     // Conditional Rendering
     if (loading) return <div class="loader"></div>;
     if (error) return <h2>Error: {error}</h2>;
-    if (!data || !data.listings || data.listings.length === 0) return (
+    if (!data || !data.data || data.data.length === 0) return (
         <div>
             <h2>No Listing Exists.</h2>
             <button
@@ -46,7 +46,7 @@ const App = () => {
         </div>
     );
 
-    return <ListPage data={data} />;
+    return <ListPage data={data.data} />;
 }
 
 const NavigatePayment = (listingID, description, category, participants, navigate) => {
