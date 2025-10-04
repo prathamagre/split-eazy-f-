@@ -2,119 +2,110 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import "./../ListPage/ListPage.css";
 import Navbar from "./../../components/navbar/Navbar";
-import ListingImg from "./../../assests/listing.png"
+import ListingImg from "./../../assests/listing.png";
 
 const serverURL = "https://split-eazy.onrender.com";
 
 const App = () => {
-    const [data, setData] = useState(null); // Store JSON data
-    const [loading, setLoading] = useState(true); // Track loading state
-    const [error, setError] = useState(null); // Track errors
+    const [data, setData] = useState([]); // Store JSON array directly
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
+
+    const navigate = useNavigate();
 
     useEffect(() => {
         const fetchData = async () => {
             try {
                 const response = await fetch(`${serverURL}/listing/`);
-
-                if (!response.ok) {
-                    throw new Error('Failed to fetch data');
-                }
+                if (!response.ok) throw new Error("Failed to fetch data");
 
                 const jsonData = await response.json();
-                setData(jsonData); // Set the fetched data
-                setLoading(false); // Stop the loading state
-
-            } catch (error) {
-                setError(error.message); // Handle errors and set error state
-                setLoading(false); // Stop loading even if there is an error
+                setData(jsonData.data || []); // Set the array of listings
+                setLoading(false);
+            } catch (err) {
+                setError(err.message);
+                setLoading(false);
             }
         };
 
         fetchData();
-    }, []); // Runs only on mount
+    }, []);
 
-    const navigate = useNavigate(); // Declare useNavigate in this component
-    // Conditional Rendering
-    if (loading) return <div class="loader"></div>;
+    // Conditional rendering
+    if (loading) return <div className="loader"></div>;
     if (error) return <h2>Error: {error}</h2>;
-    if (!data || !data.data || data.data.length === 0) return (
-        <div>
-            <h2>No Listing Exists.</h2>
-            <button
-                onClick={() => navigate("/add-list")}
-                className="add-btn">Add Listing</button>
-        </div>
+    if (!data || data.length === 0)
+        return (
+            <div>
+                <h2>No Listing Exists.</h2>
+                <button onClick={() => navigate("/add-list")} className="add-btn">
+                    Add Listing
+                </button>
+            </div>
+        );
+
+    return <ListPage data={data} setData={setData} />;
+};
+
+// Navigate to payment page and store data in localStorage
+const NavigatePayment = (listingID, description, name, participants, navigate) => {
+    localStorage.setItem(
+        "paymentPageData",
+        JSON.stringify({ listingID, description, name, participants })
     );
+    navigate("/payments-page");
+};
 
-    return <ListPage data={data.data} />;
-}
-
-const NavigatePayment = (listingID, description, category, participants, navigate) => {
-    localStorage.setItem("paymentPageData",
-        JSON.stringify({
-            "listingID": listingID,
-            "description": description,
-            "name": category,
-            "participants": participants,
-        })
-    );
-
-    navigate("/payments-page"); // Trigger navigation after storing the data
-}
-
-const DeleteListing = async (listingID, navigate, setData) => {
+// Delete a listing
+const DeleteListing = async (listingID, setData) => {
     try {
-        const response = await fetch(`${serverURL}/listing/delete/:id`, {
-            method: "POST", // POST request to send data
-            headers: {
-                "Content-Type": "application/json", // Indicate that the request body is JSON
-            },
-            body: JSON.stringify({ "listingID": listingID }), // Convert the JavaScript object/array to JSON string
+        const response = await fetch(`${serverURL}/listing/delete/${listingID}`, {
+            method: "DELETE",
+            headers: { "Content-Type": "application/json" },
         });
 
-        if (!response.ok) {
-            throw new Error('Failed to fetch data');
-        }
+        if (!response.ok) throw new Error("Failed to delete listing");
 
-        setData((prevData) => ({
-            ...prevData,
-            listings: prevData.listings.filter((listing) => listing.listingID !== listingID),
-        }));
-
-        //navigate("/list-page"); // Trigger navigation after the deletion
-        // Refresh the page after successful deletion
-        // window.location.reload();
-
-    } catch (error) {
-        console.error(error.message); // Log the error to the console for debugging
+        setData((prevData) => prevData.filter((listing) => listing._id !== listingID));
+    } catch (err) {
+        console.error(err.message);
     }
-}
+};
 
-const ListPage = ({ data }) => {
-    const navigate = useNavigate(); // Declare useNavigate
-    const [localData, setLocalData] = useState(data); // Local state to handle updates
+const ListPage = ({ data, setData }) => {
+    const navigate = useNavigate();
 
     return (
         <div>
             <Navbar />
-            <h2 className='page-heading'>Listings (Groups of Payments)</h2>
-            <div className='list-page-container'>
-                <img className="listing-img" src={ListingImg} alt="Listing illustration"></img>
+            <h2 className="page-heading">Listings (Groups of Payments)</h2>
+            <div className="list-page-container">
+                <img className="listing-img" src={ListingImg} alt="Listing illustration" />
                 <div className="card-container">
-                    {localData.listings.map((listing) => (
-                        <div key={listing.listingID} className="card">
+                    {data.map((listing) => (
+                        <div key={listing._id} className="card">
                             <h2>{listing.name}</h2>
                             <p>{listing.description}</p>
-                            <p><strong>Participants:</strong> {listing.participants.join(', ')}</p>
-                            <div className='date'>{listing.dateOfCreation}</div>
+                            <p>
+                                <strong>Participants:</strong> {listing.participants.join(", ")}
+                            </p>
+                            <div className="date">{new Date(listing.dateOfCreation).toLocaleString()}</div>
                             <button
-                                className='add-participant-btn'
-                                onClick={() => NavigatePayment(listing.listingID, listing.description, listing.name, listing.participants, navigate)}
+                                className="add-participant-btn"
+                                onClick={() =>
+                                    NavigatePayment(
+                                        listing._id,
+                                        listing.description,
+                                        listing.name,
+                                        listing.participants,
+                                        navigate
+                                    )
+                                }
                             >
                                 Open
                             </button>
                             <button
-                                onClick={() => DeleteListing(listing.listingID, navigate, setLocalData)}
+                                onClick={() => DeleteListing(listing._id, setData)}
                                 className="delete-btn"
                             >
                                 Delete
@@ -124,15 +115,11 @@ const ListPage = ({ data }) => {
                 </div>
             </div>
 
-            <button
-                onClick={() => navigate("/add-list")}
-                className="add-list-btn"
-            >
+            <button onClick={() => navigate("/add-list")} className="add-list-btn">
                 Add Listing
             </button>
         </div>
     );
 };
-
 
 export default App;
