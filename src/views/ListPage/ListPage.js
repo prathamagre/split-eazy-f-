@@ -59,7 +59,7 @@ const NavigatePayment = (listingID, description, name, participants, navigate) =
 // Delete a listing
 const DeleteListing = async (listingID, setData) => {
     try {
-        const response = await fetch(`${serverURL}/listing/delete/${listingID}`, {
+        const response = await fetch(`${serverURL}/listing/delete/:id`, {
             method: "DELETE",
             headers: { "Content-Type": "application/json" },
         });
@@ -105,7 +105,7 @@ const ListPage = ({ data, setData }) => {
                                 Open
                             </button>
                             <button
-                                onClick={() => DeleteListing(listing._id, setData)}
+                                onClick={() => DeleteListing}
                                 className="delete-btn"
                             >
                                 Delete
