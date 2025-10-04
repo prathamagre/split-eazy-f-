@@ -105,7 +105,7 @@ const ListPage = ({ data, setData }) => {
                                 Open
                             </button>
                             <button
-                                onClick={() => DeleteListing(listing._id, setLocalData)}
+                                onClick={() => DeleteListing(listing._id, setData)}
                                 className="delete-btn"
                             >
                                 Delete
