@@ -64,45 +64,36 @@ const App = () => {
                 <button onClick={() => navigate("/add-payment")} className="add-btn">Add Payment</button>
             </div>
 
-             <img onClick={() => navigate("/")} className='home-btn-im' src={HomeImg}></img>           
+            <img onClick={() => navigate("/")} className='home-btn-im' src={HomeImg}></img>
             <img onClick={() => navigate("/list-page")} className='back-img' src={BackImg}></img>
         </div>
     );
 
-    return <ListPage data={data} setData={setData} setError={setError} setLoading={setLoading}/>; // Pass setError to ListPage
+    return <ListPage data={data} setData={setData} setError={setError} setLoading={setLoading} />; // Pass setError to ListPage
 }
 
 const DeletePayment = async (paymentID, navigate, setData, setError, setLoading) => {
-    const listingID = JSON.parse(localStorage.getItem("paymentPageData")).listingID;
-
     setLoading(true);
     try {
-        const response = await fetch(`${serverURL}/payment/deleteRecord`, {
-            method: "POST", // POST request to send data
-            headers: {
-                "Content-Type": "application/json", // Indicate that the request body is JSON
-            },
-            body: JSON.stringify({ "listingID": listingID, "paymentID": paymentID }), // Convert the JavaScript object/array to JSON string
+        const response = await fetch(`${serverURL}/payment/deleteRecord/${paymentID}`, {
+            method: "DELETE",
         });
 
-        if (!response.ok) {
-            throw new Error('Failed to fetch data');
-        }
+        if (!response.ok) throw new Error("Failed to delete payment");
 
-        // Update the state by removing the deleted payment
+        // Update state
         setData(prevData => ({
             ...prevData,
             payments: prevData.payments.filter(payment => payment.paymentID !== paymentID)
         }));
 
-        //navigate("/payments-page"); // Trigger navigation after the deletion
-
     } catch (error) {
-        console.error(error.message); // Log the error to the console for debugging
-        setError(error.message); // Set the error state to display the error message
+        console.error(error.message);
+        setError(error.message);
     }
     setLoading(false);
-}
+};
+
 
 const ListPage = ({ data, setData, setError, setLoading }) => { // Accept setError here
     const navigate = useNavigate(); // Declare useNavigate in this component
@@ -128,9 +119,13 @@ const ListPage = ({ data, setData, setError, setLoading }) => { // Accept setErr
                         <p><strong>Paid By:</strong> {payment.paidBy}</p>
                         <p><strong>Paid For:</strong> {payment.paidFor.join(', ')}</p>
                         <p className='payment-date'> {payment.dateOfPayment}</p>
-                        <button onClick={() => DeletePayment(payment.paymentID, navigate, setData, setError, setLoading)} className="del-btn">
+                        <button
+                            onClick={() => DeletePayment(payment.paymentID, navigate, setData, setError, setLoading)}
+                            className="del-btn"
+                        >
                             Delete
                         </button>
+
                     </div>
                 ))}
             </div>
@@ -138,10 +133,10 @@ const ListPage = ({ data, setData, setError, setLoading }) => { // Accept setErr
                 <button onClick={() => navigate("/settlement-page")} className="settle-btn">Settlement</button>
                 <button onClick={() => navigate("/add-payment")} className="add-btn">Add Payment</button>
             </div>
-            
+
             <img onClick={() => navigate("/list-page")} className='back-img-1' src={BackImg}></img>
-            <img onClick={() => navigate("/")} className='home-btn-img' src={HomeImg}></img>   
-                    
+            <img onClick={() => navigate("/")} className='home-btn-img' src={HomeImg}></img>
+
         </div >
     );
 };
