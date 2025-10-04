@@ -120,7 +120,7 @@ const ListPage = ({ data, setData, setError, setLoading }) => { // Accept setErr
                         <p><strong>Paid For:</strong> {payment.paidFor.join(', ')}</p>
                         <p className='payment-date'> {payment.dateOfPayment}</p>
                         <button
-                            onClick={() => DeletePayment(payment.paymentID, navigate, setData, setError, setLoading)}
+                            onClick={() => DeletePayment(payment._id, navigate, setData, setError, setLoading)}
                             className="del-btn"
                         >
                             Delete
